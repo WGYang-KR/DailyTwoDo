@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C0C6F7E794D6E90D6921BF /* Pods_DailyTwoDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */; };
 		6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C22806877100E6EF56 /* AppDelegate.swift */; };
 		6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C42806877100E6EF56 /* SceneDelegate.swift */; };
-		6AFC67C72806877100E6EF56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C62806877100E6EF56 /* ViewController.swift */; };
+		6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */; };
 		6AFC67CA2806877100E6EF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67C82806877100E6EF56 /* Main.storyboard */; };
 		6AFC67CC2806877600E6EF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67CB2806877600E6EF56 /* Assets.xcassets */; };
 		6AFC67CF2806877600E6EF56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67CD2806877600E6EF56 /* LaunchScreen.storyboard */; };
+		6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyTwoDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.debug.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.debug.xcconfig"; sourceTree = "<group>"; };
+		555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.release.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.release.xcconfig"; sourceTree = "<group>"; };
 		6AFC67BF2806877100E6EF56 /* DailyTwoDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTwoDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFC67C22806877100E6EF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AFC67C42806877100E6EF56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6AFC67C62806877100E6EF56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorksViewController.swift; sourceTree = "<group>"; };
 		6AFC67C92806877100E6EF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AFC67CB2806877600E6EF56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AFC67CE2806877600E6EF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AFC67D02806877600E6EF56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C0C6F7E794D6E90D6921BF /* Pods_DailyTwoDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5543525A826F022C5924773C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */,
+				555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6AFC67B62806877100E6EF56 = {
 			isa = PBXGroup;
 			children = (
 				6AFC67C12806877100E6EF56 /* DailyTwoDo */,
 				6AFC67C02806877100E6EF56 /* Products */,
+				5543525A826F022C5924773C /* Pods */,
+				FDFB800D939577A66581ED5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +76,30 @@
 			children = (
 				6AFC67C22806877100E6EF56 /* AppDelegate.swift */,
 				6AFC67C42806877100E6EF56 /* SceneDelegate.swift */,
-				6AFC67C62806877100E6EF56 /* ViewController.swift */,
 				6AFC67C82806877100E6EF56 /* Main.storyboard */,
 				6AFC67CB2806877600E6EF56 /* Assets.xcassets */,
 				6AFC67CD2806877600E6EF56 /* LaunchScreen.storyboard */,
 				6AFC67D02806877600E6EF56 /* Info.plist */,
+				6AFC67D8280698A700E6EF56 /* DayWorks */,
 			);
 			path = DailyTwoDo;
+			sourceTree = "<group>";
+		};
+		6AFC67D8280698A700E6EF56 /* DayWorks */ = {
+			isa = PBXGroup;
+			children = (
+				6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */,
+				6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */,
+			);
+			path = DayWorks;
+			sourceTree = "<group>";
+		};
+		FDFB800D939577A66581ED5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AFC67D32806877600E6EF56 /* Build configuration list for PBXNativeTarget "DailyTwoDo" */;
 			buildPhases = (
+				BD8090C43BA65EAB88F6F1EB /* [CP] Check Pods Manifest.lock */,
 				6AFC67BB2806877100E6EF56 /* Sources */,
 				6AFC67BC2806877100E6EF56 /* Frameworks */,
 				6AFC67BD2806877100E6EF56 /* Resources */,
+				67DE067E8D02F75F2242FCEC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +170,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67DE067E8D02F75F2242FCEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD8090C43BA65EAB88F6F1EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DailyTwoDo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6AFC67BB2806877100E6EF56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AFC67C72806877100E6EF56 /* ViewController.swift in Sources */,
+				6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */,
+				6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */,
 				6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */,
 				6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +362,7 @@
 		};
 		6AFC67D42806877600E6EF56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +391,7 @@
 		};
 		6AFC67D52806877600E6EF56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
