@@ -1,0 +1,6 @@
+framework module Pods_DailyTwoDo {
+  umbrella header "Pods-DailyTwoDo-umbrella.h"
+
+  export *
+  module * { export * }
+}
