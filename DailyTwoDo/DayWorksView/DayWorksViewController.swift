@@ -16,6 +16,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    //쉐어 데이터 클래스 생성해서 해당 날짜의 day,work 저장.
     let coreDataManager = CoreDataManager()
     var date: Date = Date()
     
@@ -27,16 +29,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: false)
         return day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
     }()
-        
-    
-    
-    /*@IBAction func textFieldEditingDidEnd(_ sender: UITextField) {
-    
-        print("textFieldEditingDidEnd")
-        //데이터 등록
-        coreDataManager.newWork(date: date, title: sender.text ?? "", status: .inComplete)
-    }*/
-    
     
 
     let cellIdentifier: String = "DayWorksCell"
@@ -46,6 +38,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         // Do any additional setup after loading the view.
         print(date)
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
+        tapGesture.cancelsTouchesInView = false //인식하고, view로도 보냄
         view.addGestureRecognizer(tapGesture)
 
     }

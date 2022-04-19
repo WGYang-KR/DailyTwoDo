@@ -9,14 +9,17 @@ import UIKit
 
 class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
 
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var rightButton: UIButton!
-    weak var superTableView: UITableView!
+    @IBOutlet weak var textField: UITextField! //할일 내용
+    @IBOutlet weak var rightButton: UIButton! //할일 상태 표시 및 변경 호출
+    weak var superTableView: UITableView! //셀이 속한 테이블뷰
+    
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         let cellRow = self.superTableView.indexPath(for: self)
         print("textField DidEndEditing of cellRow:\(cellRow) ")
+        //datacore에 해당 데이터 저장하도록 호출.
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("textFieldShouldReturn")
         textField.resignFirstResponder()

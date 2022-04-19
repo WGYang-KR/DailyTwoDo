@@ -54,6 +54,7 @@ class CoreDataManager {
     
     
     //날짜에 해당하는 DayMo 조회
+    //수정 계획 : 날짜 24:00:00 <, > 날짜 00:00:00 형태로 조회
     func getDayMo(date:Date) -> DayMo {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Day")
         
@@ -79,6 +80,7 @@ class CoreDataManager {
     }
     
     //새로운 dayMo 추가
+    //수정 계획: 날짜 00:00:00으로 추가 되는 지 확인.
     func newDayMo(date: Date) -> DayMo {
         
         let object = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context)
