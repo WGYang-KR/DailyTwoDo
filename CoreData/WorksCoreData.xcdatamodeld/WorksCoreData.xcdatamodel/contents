@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Day" representedClassName="DayMo" syncable="YES">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="662655600" usesScalarValueType="NO"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <relationship name="works" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Work" inverseName="day" inverseEntity="Work"/>
+    </entity>
+    <entity name="Work" representedClassName="WorkMo" syncable="YES">
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="Default String"/>
+        <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="works" inverseEntity="Day"/>
+    </entity>
+    <elements>
+        <element name="Day" positionX="-36" positionY="9" width="128" height="74"/>
+        <element name="Work" positionX="0" positionY="45" width="128" height="89"/>
+    </elements>
+</model>

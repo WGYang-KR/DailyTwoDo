@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		08C0C6F7E794D6E90D6921BF /* Pods_DailyTwoDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */; };
+		6ADC86472807EBAB00F7D3A0 /* WorksCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC86452807EBAB00F7D3A0 /* WorksCoreData.xcdatamodeld */; };
+		6AE6687E280800D700FB944A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6687D280800D700FB944A /* CoreDataManager.swift */; };
+		6AE668A4280D3E7700FB944A /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A3280D3E7700FB944A /* Status.swift */; };
+		6AE668A9280D4BCE00FB944A /* DayMo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A6280D4BCE00FB944A /* DayMo+CoreDataProperties.swift */; };
+		6AE668AA280D4BCE00FB944A /* DayMo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A8280D4BCE00FB944A /* DayMo+CoreDataClass.swift */; };
+		6AE668AB280D4BCE00FB944A /* WorkMo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A5280D4BCE00FB944A /* WorkMo+CoreDataClass.swift */; };
+		6AE668AC280D4BCE00FB944A /* WorkMo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A7280D4BCE00FB944A /* WorkMo+CoreDataProperties.swift */; };
 		6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C22806877100E6EF56 /* AppDelegate.swift */; };
 		6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C42806877100E6EF56 /* SceneDelegate.swift */; };
 		6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */; };
@@ -21,6 +28,13 @@
 		16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyTwoDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.debug.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.debug.xcconfig"; sourceTree = "<group>"; };
 		555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.release.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.release.xcconfig"; sourceTree = "<group>"; };
+		6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
+		6AE6687D280800D700FB944A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6AE668A3280D3E7700FB944A /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		6AE668A5280D4BCE00FB944A /* WorkMo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WorkMo+CoreDataClass.swift"; path = "/Users/wgyang/DailyTwoDo/CoreData/WorkMo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		6AE668A6280D4BCE00FB944A /* DayMo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DayMo+CoreDataProperties.swift"; path = "/Users/wgyang/DailyTwoDo/CoreData/DayMo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		6AE668A7280D4BCE00FB944A /* WorkMo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WorkMo+CoreDataProperties.swift"; path = "/Users/wgyang/DailyTwoDo/CoreData/WorkMo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		6AE668A8280D4BCE00FB944A /* DayMo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DayMo+CoreDataClass.swift"; path = "/Users/wgyang/DailyTwoDo/CoreData/DayMo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		6AFC67BF2806877100E6EF56 /* DailyTwoDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTwoDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFC67C22806877100E6EF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AFC67C42806877100E6EF56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +67,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6ADC86502807ED4200F7D3A0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6AE668A5280D4BCE00FB944A /* WorkMo+CoreDataClass.swift */,
+				6AE668A7280D4BCE00FB944A /* WorkMo+CoreDataProperties.swift */,
+				6AE668A8280D4BCE00FB944A /* DayMo+CoreDataClass.swift */,
+				6AE668A6280D4BCE00FB944A /* DayMo+CoreDataProperties.swift */,
+				6ADC86452807EBAB00F7D3A0 /* WorksCoreData.xcdatamodeld */,
+				6AE6687D280800D700FB944A /* CoreDataManager.swift */,
+				6AE668A3280D3E7700FB944A /* Status.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		6AFC67B62806877100E6EF56 = {
 			isa = PBXGroup;
 			children = (
+				6ADC86502807ED4200F7D3A0 /* CoreData */,
 				6AFC67C12806877100E6EF56 /* DailyTwoDo */,
 				6AFC67C02806877100E6EF56 /* Products */,
 				5543525A826F022C5924773C /* Pods */,
@@ -80,18 +109,18 @@
 				6AFC67CB2806877600E6EF56 /* Assets.xcassets */,
 				6AFC67CD2806877600E6EF56 /* LaunchScreen.storyboard */,
 				6AFC67D02806877600E6EF56 /* Info.plist */,
-				6AFC67D8280698A700E6EF56 /* DayWorks */,
+				6AFC67D8280698A700E6EF56 /* DayWorksView */,
 			);
 			path = DailyTwoDo;
 			sourceTree = "<group>";
 		};
-		6AFC67D8280698A700E6EF56 /* DayWorks */ = {
+		6AFC67D8280698A700E6EF56 /* DayWorksView */ = {
 			isa = PBXGroup;
 			children = (
 				6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */,
 				6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */,
 			);
-			path = DayWorks;
+			path = DayWorksView;
 			sourceTree = "<group>";
 		};
 		FDFB800D939577A66581ED5A /* Frameworks */ = {
@@ -217,10 +246,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE668AA280D4BCE00FB944A /* DayMo+CoreDataClass.swift in Sources */,
+				6AE668AC280D4BCE00FB944A /* WorkMo+CoreDataProperties.swift in Sources */,
+				6ADC86472807EBAB00F7D3A0 /* WorksCoreData.xcdatamodeld in Sources */,
+				6AE668AB280D4BCE00FB944A /* WorkMo+CoreDataClass.swift in Sources */,
 				6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */,
 				6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */,
+				6AE668A4280D3E7700FB944A /* Status.swift in Sources */,
 				6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */,
 				6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */,
+				6AE668A9280D4BCE00FB944A /* DayMo+CoreDataProperties.swift in Sources */,
+				6AE6687E280800D700FB944A /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -350,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -376,6 +412,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -405,6 +442,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6ADC86452807EBAB00F7D3A0 /* WorksCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */,
+			);
+			currentVersion = 6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */;
+			path = WorksCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6AFC67B72806877100E6EF56 /* Project object */;
 }

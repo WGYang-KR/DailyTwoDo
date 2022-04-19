@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/wgyang/DailyTwoDo/CoreData/WorkMo+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/wgyang/DailyTwoDo/CoreData/WorkMo+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/wgyang/DailyTwoDo/CoreData/DayMo+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/wgyang/DailyTwoDo/CoreData/DayMo+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:DailyTwoDo.xcodeproj">
    </FileRef>
    <FileRef
