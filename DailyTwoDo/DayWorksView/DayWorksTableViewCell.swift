@@ -16,6 +16,8 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         let cellRow = self.superTableView.indexPath(for: self)
+        //수정필요:: 마지막 칸이면 추가, 아니면 수정 실행.
+        
         print("textField DidEndEditing of cellRow:\(cellRow) ")
         //datacore에 해당 데이터 저장하도록 호출.
         DayWorks.shared.newWork(title: textField.text ?? "")

@@ -11,7 +11,7 @@ import CoreData
 
 class DayWorksViewController: UIViewController{
 
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var customNavigationItem: UINavigationItem!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var tableView: UITableView!
@@ -29,9 +29,49 @@ class DayWorksViewController: UIViewController{
         
         print("worksArray: \(DayWorks.shared.worksArray)")
         print("worksInDay: \(DayWorks.shared.day.works)")
-    
+        
+        //MARK: calendar 커스터마이징
+        calendar.select(SelectedDate.shared.date) //오늘 날짜 선택
+        calendar.appearance.caseOptions =  FSCalendarCaseOptions.weekdayUsesSingleUpperCase
+        calendar.locale = Locale(identifier:"ko_KR") //Locale.current.identifier
+        print(calendar.locale)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월"
+        print(self.navigationItem.title)
+        customNavigationItem.title = dateFormatter.string(from: date)
+        
     }
 }
+
+extension DayWorksViewController: FSCalendarDelegate{
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        //현재 화면의 달이 아니면 해당 달력으로 페이지 이동
+        let currentPageYearMonth = Calendar.current.dateComponents([.year, .month] , from: self.calendar.currentPage)
+        let selectedMonth = Calendar.current.dateComponents([.year, .month], from: date)
+        
+        if currentPageYearMonth != selectedMonth {
+            calendar.setCurrentPage(date, animated: true)
+            print("현재 page: \(calendar.currentPage)")
+        }
+        print("날짜선택됨: \(date)")
+        
+        SelectedDate.shared.date = date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월"
+        customNavigationItem.title = dateFormatter.string(from: date)
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        return false
+    }
+    
+}
+
 
 extension DayWorksViewController: UITableViewDelegate {
     
