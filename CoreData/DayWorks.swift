@@ -9,14 +9,25 @@ import Foundation
 import UIKit
 import CoreData
 
-class CoreDataManager {
-    static let shared: CoreDataManager = CoreDataManager()
+class DayWorks {
     
+    static let shared: DayWorks = DayWorks()
+    private init() {
+        
+    }
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
     lazy var context = appDelegate.persistentContainer.viewContext
-    
     let modelName: String = "WorksCoreData"
+    var date:Date = Date() //오늘 날짜로 초기화
+    
+    lazy var day: DayMo = {
+        return self.getDayMo(date: date)
+    }()
+    
+    lazy var worksArray: [WorkMo] = {
+        let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
+        return self.day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+    }()
     
     //필요기능
     // 1. 할일 추가. addWork
@@ -29,27 +40,14 @@ class CoreDataManager {
     // 8. 그 날 메모 수정. updateDayMemo
     
     //yyyy-MM-dd HH:mm:ss -> yyyy-MM-dd
-    func getStrFromDate(date: Date) -> String {
+    func strDateOnly(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        print(date)
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .medium
-        let result = dateFormatter.string(from: date) + "*"
-        print("returned by getStrFromDate: \(result)")
+        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        dateFormatter.dateFormat = "yyyy-MM-dd "
+        let result = dateFormatter.string(from: date)
+        print("returned by strDateOnly: \(result)")
         return result
-    }
-    
-    func removeTimeFromDate(date: Date) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .medium
-        let strDate = dateFormatter.string(from: date)
-        guard let date = dateFormatter.date(from: strDate) else {
-            print("Date 시간 제거 실패")
-            return Date()
-        }
-        print("returned by removeTimeFromeDate: \(date)")
-        return date
     }
     
     
@@ -58,7 +56,7 @@ class CoreDataManager {
     func getDayMo(date:Date) -> DayMo {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Day")
         
-        let pred = NSPredicate(format: "date like %@", getStrFromDate(date: date) )
+        let pred = NSPredicate(format: "date == %@",strDateOnly(date: date) )
         
         fetchRequest.predicate = pred
         
@@ -84,7 +82,7 @@ class CoreDataManager {
     func newDayMo(date: Date) -> DayMo {
         
         let object = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context)
-        object.setValue(removeTimeFromDate(date: date), forKey:"date")
+        object.setValue(strDateOnly(date:date), forKey:"date")
         
         do{
             try context.save()
@@ -98,6 +96,9 @@ class CoreDataManager {
         
     }
     
+    func newWork(title: String) -> Bool {
+        newWork(date: self.date, title: title, status: nil)
+    }
     //새로운 work 추가
     func newWork(date: Date, title: String, status: Status?) -> Bool {
         let status:Status = status ?? .inComplete
@@ -112,7 +113,9 @@ class CoreDataManager {
         workMo.status = Int16(status.rawValue)
         workMo.order = Int16(dayMo.works?.count ?? 0)
         
-        dayMo.addToWorks(workMo)
+        dayMo.addToWorks(workMo) //저장소에 추가
+        
+        self.worksArray.append(workMo) //배열에 추가
         
         do {
             try context.save()
@@ -123,5 +126,46 @@ class CoreDataManager {
         }
     }
 
-
+    func deleteWork(date: Date, order: Int) -> Bool {
+        
+        let day = getDayMo(date: date)
+        guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(order)}).first else {
+            print("deleteWork: 해당 하는 work 없음")
+            return false
+        }
+        
+        context.delete(work as! NSManagedObject)
+        
+        do {
+            try context.save()
+            //제거된 빈자리 order 정렬 필요.
+            self.worksArray.remove(at: order)
+            resetWorksOrder(day: day)
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+    }
+    
+    func resetWorksOrder(day: DayMo) -> Bool {
+        
+        
+        let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
+        let worksArray = day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+        
+        for (i, work) in worksArray.enumerated() {
+            
+            work.order = Int16(i)
+        }
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+        
+    }
 }

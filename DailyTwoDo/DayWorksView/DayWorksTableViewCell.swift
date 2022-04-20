@@ -18,6 +18,8 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
         let cellRow = self.superTableView.indexPath(for: self)
         print("textField DidEndEditing of cellRow:\(cellRow) ")
         //datacore에 해당 데이터 저장하도록 호출.
+        DayWorks.shared.newWork(title: textField.text ?? "")
+        superTableView.reloadData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -26,6 +28,7 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
         return true
         
     }
+    
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
