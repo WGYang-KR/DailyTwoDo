@@ -18,15 +18,14 @@ class DayWorks {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context = appDelegate.persistentContainer.viewContext
     let modelName: String = "WorksCoreData"
-    var date:Date = Date() //오늘 날짜로 초기화
+    var date: Date = Date() //오늘 날짜로 초기화
     
     lazy var day: DayMo = {
         return self.getDayMo(date: date)
     }()
     
     lazy var worksArray: [WorkMo] = {
-        let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
-        return self.day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+        return self.getWorksArray(day: self.day)
     }()
     
     //필요기능
@@ -38,6 +37,17 @@ class DayWorks {
     // 6. 할일 순서 이동. updateWorkOrder
     // 7. 그 날 할일,메모 조회. getDay
     // 8. 그 날 메모 수정. updateDayMemo
+    func setDate(date: Date) {
+        self.day = self.getDayMo(date: date)
+        self.worksArray = getWorksArray(day: self.day)
+        self.date = date
+    }
+    
+    func getWorksArray(day: DayMo) -> [WorkMo] {
+        let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
+        return self.day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+    }
+    
     
     //yyyy-MM-dd HH:mm:ss -> yyyy-MM-dd
     func strDateOnly(date: Date) -> String {
@@ -126,6 +136,33 @@ class DayWorks {
         }
     }
 
+    func editWork(ofDate: Date, ofOrder: Int, changeTitle: String) -> Bool {
+        
+        
+        let day = getDayMo(date: ofDate)
+        print(day.works)
+        guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(ofOrder)}).first else {
+            print("editWork: 해당 하는 work 없음")
+            return false
+        }
+        
+        guard let currentWork = work as? WorkMo else {
+            print("WorkMo변화 실패")
+            return false
+        }
+        
+        currentWork.title = changeTitle
+        
+        do { try context.save()
+            return true
+        }
+        catch {
+            context.rollback()
+            return false
+        }
+        
+    }
+    
     func deleteWork(date: Date, order: Int) -> Bool {
         
         let day = getDayMo(date: date)

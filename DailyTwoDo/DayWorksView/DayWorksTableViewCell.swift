@@ -15,13 +15,29 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        let cellRow = self.superTableView.indexPath(for: self)
-        //수정필요:: 마지막 칸이면 추가, 아니면 수정 실행.
         
-        print("textField DidEndEditing of cellRow:\(cellRow) ")
-        //datacore에 해당 데이터 저장하도록 호출.
-        DayWorks.shared.newWork(title: textField.text ?? "")
-        superTableView.reloadData()
+        guard let cellRow = self.superTableView.indexPath(for: self) else {
+            print("셀 위치 찾기 실패")
+            return
+            
+        }
+        print("텍스트필드 편집완료. cellRow:\(cellRow) ")
+        
+        //수정필요:: 마지막 칸이면 추가, 아니면 수정 실행.
+        if cellRow.row < DayWorks.shared.worksArray.count {
+        
+            print("수정실행")
+            if DayWorks.shared.editWork(ofDate: SelectedDate.shared.date, ofOrder: cellRow.row, changeTitle: textField.text ?? "") {
+                print("수정완료")
+                superTableView.reloadRows(at: [cellRow], with: .none)
+            }
+            
+        
+        } else {
+            print("생성실행")
+            DayWorks.shared.newWork(title: textField.text ?? "")
+            superTableView.reloadData()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
