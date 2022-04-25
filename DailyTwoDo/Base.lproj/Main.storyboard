@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZIR-sT-ehp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumGothicRegular.otf">
+            <string>NanumGothicOTF</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--일자별-->
         <scene sceneID="tne-QT-ifu">
@@ -16,16 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7b-BR-0hU">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7b-BR-0hU">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="12"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="13"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="0000년 00월" id="eXJ-Fg-lzN">
-                                        <barButtonItem key="rightBarButtonItem" title="편집" id="cRs-K3-Mqj"/>
-                                    </navigationItem>
+                                    <navigationItem title="0000년 00월" id="eXJ-Fg-lzN"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIO-wL-myI" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="349.5"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nIO-wL-myI" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="414" height="372"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
@@ -34,38 +43,63 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleTodayColor">
-                                        <color key="value" systemColor="systemOrangeColor"/>
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Ia6-S3-kGq"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eJS-Vz-ogT">
-                                <rect key="frame" x="0.0" y="437.5" width="414" height="375.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zt-Dc-7AR">
+                                <rect key="frame" x="0.0" y="460" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xRc-5e-xjb"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eJS-Vz-ogT">
+                                <rect key="frame" x="0.0" y="461" width="414" height="401"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayWorksCell" id="44z-gt-78I" customClass="DayWorksTableViewCell" customModule="DailyTwoDo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44z-gt-78I" id="BWn-Wu-aYN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l00-dF-DHx">
-                                                    <rect key="frame" x="353.5" y="5" width="45.5" height="34.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l00-dF-DHx">
+                                                    <rect key="frame" x="384" y="15.5" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="SgV-hm-q9g"/>
+                                                        <constraint firstAttribute="width" constant="15" id="oLi-A7-mhw"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="touchUpInsideRightButton:" destination="44z-gt-78I" eventType="touchUpInside" id="kcW-i4-ACd"/>
+                                                    </connections>
                                                 </button>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="할일을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-Vl-6CP">
-                                                    <rect key="frame" x="15" y="5" width="328.5" height="34.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="할일을 입력하세요." textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-Vl-6CP">
+                                                    <rect key="frame" x="15" y="15" width="359" height="15.5"/>
+                                                    <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="44z-gt-78I" id="TEj-du-HYs"/>
@@ -73,11 +107,10 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="gXk-Vl-6CP" secondAttribute="bottom" constant="5" id="BSy-YO-Z4v"/>
+                                                <constraint firstItem="l00-dF-DHx" firstAttribute="centerY" secondItem="gXk-Vl-6CP" secondAttribute="centerY" id="2ab-h2-fuI"/>
+                                                <constraint firstAttribute="bottom" secondItem="gXk-Vl-6CP" secondAttribute="bottom" constant="15" id="BSy-YO-Z4v"/>
                                                 <constraint firstItem="gXk-Vl-6CP" firstAttribute="leading" secondItem="BWn-Wu-aYN" secondAttribute="leading" constant="15" id="CDC-Pq-Ryy"/>
-                                                <constraint firstItem="l00-dF-DHx" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="5" id="CrW-Ur-nm4"/>
-                                                <constraint firstAttribute="bottom" secondItem="l00-dF-DHx" secondAttribute="bottom" constant="5" id="auf-cC-p8X"/>
-                                                <constraint firstItem="gXk-Vl-6CP" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="5" id="eDK-aS-TXj"/>
+                                                <constraint firstItem="gXk-Vl-6CP" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="15" id="eDK-aS-TXj"/>
                                                 <constraint firstItem="l00-dF-DHx" firstAttribute="leading" secondItem="gXk-Vl-6CP" secondAttribute="trailing" constant="10" id="ex6-e9-rIy"/>
                                                 <constraint firstAttribute="trailing" secondItem="l00-dF-DHx" secondAttribute="trailing" constant="15" id="sf4-oh-SQh"/>
                                             </constraints>
@@ -100,45 +133,29 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJS-Vz-ogT" secondAttribute="trailing" id="6mR-hc-OxO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nIO-wL-myI" secondAttribute="trailing" id="7Sb-M6-X0b"/>
                             <constraint firstItem="n7b-BR-0hU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CVK-b0-WSy"/>
+                            <constraint firstItem="8zt-Dc-7AR" firstAttribute="top" secondItem="nIO-wL-myI" secondAttribute="bottom" id="Cmx-uM-I1W"/>
                             <constraint firstItem="n7b-BR-0hU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EFV-Aa-eVU"/>
                             <constraint firstItem="n7b-BR-0hU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fzx-OK-QEN"/>
-                            <constraint firstItem="eJS-Vz-ogT" firstAttribute="top" secondItem="nIO-wL-myI" secondAttribute="bottom" id="G9g-eM-bAy"/>
+                            <constraint firstItem="8zt-Dc-7AR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JyQ-hM-imo"/>
+                            <constraint firstItem="eJS-Vz-ogT" firstAttribute="top" secondItem="8zt-Dc-7AR" secondAttribute="bottom" id="L4f-se-qZQ"/>
                             <constraint firstItem="eJS-Vz-ogT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Znz-8L-r5y"/>
                             <constraint firstItem="nIO-wL-myI" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="1:2.2" id="cZR-3Y-yQX"/>
                             <constraint firstItem="nIO-wL-myI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ev7-rS-WR1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eJS-Vz-ogT" secondAttribute="bottom" id="ibn-Ao-qkp"/>
                             <constraint firstItem="nIO-wL-myI" firstAttribute="top" secondItem="n7b-BR-0hU" secondAttribute="bottom" id="uhE-eS-0re"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8zt-Dc-7AR" secondAttribute="trailing" id="vPT-an-xoS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="일자별" image="calendar" catalog="system" id="vaX-ay-c5p"/>
                     <connections>
                         <outlet property="calendar" destination="nIO-wL-myI" id="WZr-bD-gMK"/>
                         <outlet property="customNavigationItem" destination="eXJ-Fg-lzN" id="KY6-2L-OEp"/>
-                        <outlet property="rightBarButton" destination="cRs-K3-Mqj" id="Ncm-8i-RCp"/>
                         <outlet property="tableView" destination="eJS-Vz-ogT" id="nZp-Ax-5CG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="53.571428571428569"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="7z4-gE-Kg9">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZIR-sT-ehp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DKb-lX-fud">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Rma-M2-YA2"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6d8-TR-fBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="53.571428571428569"/>
         </scene>
     </scenes>
     <resources>
@@ -147,8 +164,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -12,23 +12,10 @@ import CoreData
 class DayWorksViewController: UIViewController{
 
     @IBOutlet weak var customNavigationItem: UINavigationItem!
-    @IBOutlet weak var rightBarButton: UIBarButtonItem!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "DayWorksCell"
-    var selectedDate: Date {
-        get {
-            if let selectedDate = self.calendar.selectedDate {
-                return selectedDate
-            } else {
-                let currentDate = Date()
-                self.calendar.select(currentDate) //현재 날짜 지정
-                return currentDate
-            }
-        }
-    }
-
-        
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,19 +26,24 @@ class DayWorksViewController: UIViewController{
         view.addGestureRecognizer(tapGesture)
 
         
-        print("worksArray: \(DayWorks.shared.worksArray)")
-        print("worksInDay: \(DayWorks.shared.day.works)")
-        
         //MARK: - calendar 초기 세팅
-        calendar.select(SelectedDate.shared.date) //오늘 날짜 선택
+        print("초기 날짜 세팅")
+        calendar.select(DayWorks.shared.selectedDate) //오늘 날짜 선택
+        print("초기 날짜 세팅 완료")
         calendar.appearance.caseOptions =  FSCalendarCaseOptions.weekdayUsesSingleUpperCase
         calendar.locale = Locale(identifier:"ko_KR") //Locale.current.identifier
         print(calendar.locale)
+        // 헤더 폰트 설정
+        calendar.appearance.headerTitleFont = UIFont.nanum(size: 10, family: .Regular)
+        // Weekday 폰트 설정
+        calendar.appearance.weekdayFont = UIFont.nanum(size: 10, family: .Regular)
+        // 각각의 일(날짜) 폰트 설정 
+        calendar.appearance.titleFont = UIFont.nanum(size: 12, family: .Regular)
         
         //MARK: - NavigationItem 초기 세팅
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월"
-        customNavigationItem.title = dateFormatter.string(from: SelectedDate.shared.date)
+        customNavigationItem.title = dateFormatter.string(from: DayWorks.shared.selectedDate)
         
     }
 }
@@ -71,17 +63,15 @@ extension DayWorksViewController: FSCalendarDelegate{
             print("현재 page: \(calendar.currentPage)")
         }
         
-        
-        //날짜 업데이트
-        SelectedDate.shared.date = date
-        
         //네비게이션아이템 타이틀 업데이트
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월"
         customNavigationItem.title = dateFormatter.string(from: date)
         
         //day works 다시 로드
-        DayWorks.shared.setDate(date: SelectedDate.shared.date)
+        print("날짜 선택 반영")
+        DayWorks.shared.selectedDate = date
+        print("날짜 선택 반영 완료")
         self.tableView.reloadData()
     }
     
@@ -99,7 +89,7 @@ extension DayWorksViewController: UITableViewDelegate {
                     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let deleteAction = UIContextualAction(style: .destructive, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            if DayWorks.shared.deleteWork(date: SelectedDate.shared.date, order: indexPath.row) {
+            if DayWorks.shared.deleteWork(order: indexPath.row) {
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 success(true)
             }
@@ -116,7 +106,7 @@ extension DayWorksViewController: UITableViewDelegate {
 extension DayWorksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DayWorks.shared.worksArray.count + 1
+        return DayWorks.shared.selectedWorks.count + 1
        
     }
     
@@ -125,11 +115,11 @@ extension DayWorksViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DayWorksTableViewCell else { return DayWorksTableViewCell() }
   
         cell.superTableView = self.tableView
-        let numWorks = DayWorks.shared.worksArray.count
+        let numWorks = DayWorks.shared.selectedWorks.count
     
         if indexPath.row < numWorks {
             //목록cell
-            cell.textField.text = DayWorks.shared.worksArray[indexPath.row].title
+            cell.textField.text = DayWorks.shared.selectedWorks[indexPath.row].title
         } else {
             //입력cell
             cell.textField.text = ""

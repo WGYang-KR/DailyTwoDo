@@ -12,45 +12,80 @@ import CoreData
 class DayWorks {
     
     static let shared: DayWorks = DayWorks()
+    
     private init() {
+        print("init")
+        self._selectedDate = Date()
+    }
+    
+    private let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    private lazy var context = appDelegate.persistentContainer.viewContext
+    private let modelName: String = "WorksCoreData"
+   
+    lazy var days: [DayMo] = {
+        print("days 처음 호출")
+        return self.getDays()
+    }()
+    
+    private var _selectedDate: Date
+    var selectedDate: Date {
+        get {
+            print("selectedDate 호출")
+            return _selectedDate
+        }
         
-    }
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    lazy var context = appDelegate.persistentContainer.viewContext
-    let modelName: String = "WorksCoreData"
-    var date: Date = Date() //오늘 날짜로 초기화
-    
-    lazy var day: DayMo = {
-        return self.getDayMo(date: date)
-    }()
-    
-    lazy var worksArray: [WorkMo] = {
-        return self.getWorksArray(day: self.day)
-    }()
-    
-    //필요기능
-    // 1. 할일 추가. addWork
-    // 2. 할일 제거. removeWork
-    // 3. 할일 내용 수정. updateWorkTitle
-    // 4. 할일 상태 수정. updateWorkStatus
-    // 5. 할일 날짜 이동. updateWorkDate
-    // 6. 할일 순서 이동. updateWorkOrder
-    // 7. 그 날 할일,메모 조회. getDay
-    // 8. 그 날 메모 수정. updateDayMemo
-    func setDate(date: Date) {
-        self.day = self.getDayMo(date: date)
-        self.worksArray = getWorksArray(day: self.day)
-        self.date = date
+        set(value) {
+            print("selectedDate 변경")
+            _selectedDate = value
+            //selectedDay, selectedWorks 갱신
+            self.selectedDay = getDay(date: value)
+            self.selectedWorks = getWorks(day: self.selectedDay)
+        }
     }
     
-    func getWorksArray(day: DayMo) -> [WorkMo] {
+    lazy var selectedDay: DayMo = {
+        print("selectedDay 처음 호출")
+        return self.getDay(date: self.selectedDate)
+    }()
+    lazy var selectedWorks: [WorkMo] = {
+        print("selectedWorks 처음 호출")
+        return self.getWorks(day: self.selectedDay)
+    }()
+    
+    
+    private func getDays() -> [DayMo] {
+        print("getDays()호출")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Day")
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+
+        do {
+            let result:[NSManagedObject] = try context.fetch(fetchRequest)
+            if let days = result as? [DayMo] {
+                print("getDays 완료.")
+                return days
+            } else {
+                print("getDays 변환 실패")
+                return []
+            }
+        } catch {
+            print("[DayMo] DB조회 실패")
+            return []
+        }
+    }
+    
+    
+    private func getWorks(day: DayMo) -> [WorkMo] {
+        print("getWorks 호출")
         let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
-        return self.day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+        
+        return day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
     }
     
     
     //yyyy-MM-dd HH:mm:ss -> yyyy-MM-dd
-    func strDateOnly(date: Date) -> String {
+    private func strDateOnly(date: Date) -> String {
+
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
@@ -63,7 +98,8 @@ class DayWorks {
     
     //날짜에 해당하는 DayMo 조회
     //수정 계획 : 날짜 24:00:00 <, > 날짜 00:00:00 형태로 조회
-    func getDayMo(date:Date) -> DayMo {
+    private func getDay(date:Date) -> DayMo {
+        print("getDay()호출")
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Day")
         
         let pred = NSPredicate(format: "date == %@",strDateOnly(date: date) )
@@ -73,26 +109,26 @@ class DayWorks {
         do {
             let result:[NSManagedObject] = try context.fetch(fetchRequest)
             if let dayMo = result.first as? DayMo {
-                print("getDayMo 완료.")
+                print("getDay 완료.")
                 return dayMo
             } else {
                 print("fetch 결과에 DayMo 없음")
-                return newDayMo(date: date)
+                return newDay(on: date)
             }
              
         } catch {
             print("DayMo DB조회 실패")
-            return newDayMo(date: date)
+            return newDay(on: date)
         }
         
     }
     
     //새로운 dayMo 추가
     //수정 계획: 날짜 00:00:00으로 추가 되는 지 확인.
-    func newDayMo(date: Date) -> DayMo {
-        
+    private func newDay(on: Date) -> DayMo {
+        print("newDay()호출")
         let object = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context)
-        object.setValue(strDateOnly(date:date), forKey:"date")
+        object.setValue(strDateOnly(date: on), forKey:"date")
         
         do{
             try context.save()
@@ -107,13 +143,15 @@ class DayWorks {
     }
     
     func newWork(title: String) -> Bool {
-        newWork(date: self.date, title: title, status: nil)
+        print("newWork()호출")
+        return newWork(date: self.selectedDate, title: title, status: nil)
     }
     //새로운 work 추가
-    func newWork(date: Date, title: String, status: Status?) -> Bool {
+    private func newWork(date: Date, title: String, status: Status?) -> Bool {
+        print("newWork(date:)호출")
         let status:Status = status ?? .inComplete
         
-        let dayMo:DayMo = getDayMo(date: date)
+        let dayMo:DayMo = getDay(date: date)
         
         guard let workMo = NSEntityDescription.insertNewObject(forEntityName: "Work", into: context) as? WorkMo else {
             print("updateWork:insertNewObject 실패")
@@ -125,7 +163,7 @@ class DayWorks {
         
         dayMo.addToWorks(workMo) //저장소에 추가
         
-        self.worksArray.append(workMo) //배열에 추가
+        self.selectedWorks.append(workMo) //배열에 추가
         
         do {
             try context.save()
@@ -136,10 +174,9 @@ class DayWorks {
         }
     }
 
-    func editWork(ofDate: Date, ofOrder: Int, changeTitle: String) -> Bool {
-        
-        
-        let day = getDayMo(date: ofDate)
+    func editWork(ofOrder: Int, changeTitle: String) -> Bool {
+        print("editWork()호출")
+        let day = selectedDay
         print(day.works)
         guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(ofOrder)}).first else {
             print("editWork: 해당 하는 work 없음")
@@ -163,9 +200,9 @@ class DayWorks {
         
     }
     
-    func deleteWork(date: Date, order: Int) -> Bool {
-        
-        let day = getDayMo(date: date)
+    func deleteWork(order: Int) -> Bool {
+        print("deleteWork호출")
+        let day = self.selectedDay
         guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(order)}).first else {
             print("deleteWork: 해당 하는 work 없음")
             return false
@@ -176,8 +213,8 @@ class DayWorks {
         do {
             try context.save()
             //제거된 빈자리 order 정렬 필요.
-            self.worksArray.remove(at: order)
-            resetWorksOrder(day: day)
+            self.selectedWorks.remove(at: order)
+            reorderWorks(ofDay: day)
             return true
         } catch {
             context.rollback()
@@ -185,11 +222,10 @@ class DayWorks {
         }
     }
     
-    func resetWorksOrder(day: DayMo) -> Bool {
-        
-        
+    private func reorderWorks(ofDay: DayMo) -> Bool {
+        print("reorderWorks()호출")
         let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
-        let worksArray = day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
+        let worksArray = selectedDay.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
         
         for (i, work) in worksArray.enumerated() {
             

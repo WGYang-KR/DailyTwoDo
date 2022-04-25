@@ -8,13 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		08C0C6F7E794D6E90D6921BF /* Pods_DailyTwoDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */; };
-		6AB093B3281014110095ADDE /* SelectedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB093B2281014110095ADDE /* SelectedDate.swift */; };
-		6AB093B5281130E60095ADDE /* DayWorksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB093B4281130E60095ADDE /* DayWorksManager.swift */; };
-		6ADC86472807EBAB00F7D3A0 /* DayWorks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC86452807EBAB00F7D3A0 /* DayWorks.xcdatamodeld */; };
-		6AE6687E280800D700FB944A /* DayWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6687D280800D700FB944A /* DayWorks.swift */; };
+		6A0393A728165A7A0036999A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A03934A28165A7A0036999A /* LaunchScreen.storyboard */; };
+		6A0393A828165A7A0036999A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A03934C28165A7A0036999A /* Main.storyboard */; };
+		6A0393A928165A7A0036999A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03934E28165A7A0036999A /* AppDelegate.swift */; };
+		6A0393AB28165A7A0036999A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935028165A7A0036999A /* SceneDelegate.swift */; };
+		6A0393AE28165A7A0036999A /* DailyTwoDo.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */; };
+		6A0393AF28165A7A0036999A /* DayWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935928165A7A0036999A /* DayWorks.swift */; };
+		6A0393B028165A7A0036999A /* DayWorks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */; };
+		6A0393B228165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */; };
+		6A0393B428165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936628165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist */; };
+		6A0393B528165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist */; };
+		6A0393B728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936A28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist */; };
+		6A0393B828165A7A0036999A /* Pods-DailyTwoDo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936B28165A7A0036999A /* Pods-DailyTwoDo-Info.plist */; };
+		6A0393B928165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936C28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.markdown */; };
+		6A0393BA28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936D28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist */; };
+		6A0393BB28165A7A0036999A /* Pods-DailyTwoDo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03936E28165A7A0036999A /* Pods-DailyTwoDo-dummy.m */; };
+		6A0393BC28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936F28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist */; };
+		6A0393BE28165A7A0036999A /* FSCalendar-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937228165A7A0036999A /* FSCalendar-Info.plist */; };
+		6A0393BF28165A7A0036999A /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03937328165A7A0036999A /* FSCalendar-dummy.m */; };
+		6A0393C128165A7A0036999A /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937828165A7A0036999A /* Manifest.lock */; };
+		6A0393C228165A7A0036999A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937C28165A7A0036999A /* LICENSE */; };
+		6A0393C328165A7A0036999A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937D28165A7A0036999A /* README.md */; };
+		6A0393C428165A7A0036999A /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03937F28165A7A0036999A /* FSCalendarCollectionView.m */; };
+		6A0393C528165A7A0036999A /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938228165A7A0036999A /* FSCalendarDelegationProxy.m */; };
+		6A0393C628165A7A0036999A /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938428165A7A0036999A /* FSCalendarDelegationFactory.m */; };
+		6A0393C728165A7A0036999A /* FSCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938B28165A7A0036999A /* FSCalendarCell.m */; };
+		6A0393C828165A7A0036999A /* FSCalendarStickyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938C28165A7A0036999A /* FSCalendarStickyHeader.m */; };
+		6A0393C928165A7A0036999A /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938D28165A7A0036999A /* FSCalendar.m */; };
+		6A0393CA28165A7A0036999A /* FSCalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938E28165A7A0036999A /* FSCalendarCollectionViewLayout.m */; };
+		6A0393CB28165A7A0036999A /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938F28165A7A0036999A /* FSCalendarWeekdayView.m */; };
+		6A0393CC28165A7A0036999A /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939228165A7A0036999A /* FSCalendarSeparatorDecorationView.m */; };
+		6A0393CD28165A7A0036999A /* FSCalendarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939428165A7A0036999A /* FSCalendarExtensions.m */; };
+		6A0393CE28165A7A0036999A /* FSCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939628165A7A0036999A /* FSCalendarConstants.m */; };
+		6A0393CF28165A7A0036999A /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939728165A7A0036999A /* FSCalendarCalculator.m */; };
+		6A0393D028165A7A0036999A /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939828165A7A0036999A /* FSCalendarHeaderView.m */; };
+		6A0393D128165A7A0036999A /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939C28165A7A0036999A /* FSCalendarTransitionCoordinator.m */; };
+		6A0393D228165A7A0036999A /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939D28165A7A0036999A /* FSCalendarAppearance.m */; };
+		6A0393D328165A7A0036999A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6A03939E28165A7A0036999A /* Podfile */; };
+		6A0393D428165A7A0036999A /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 6A03939F28165A7A0036999A /* Podfile.lock */; };
+		6A0393DD28165BAC0036999A /* NanumGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393D928165BAC0036999A /* NanumGothicBold.otf */; };
+		6A0393DE28165BAC0036999A /* NanumGothicRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DA28165BAC0036999A /* NanumGothicRegular.otf */; };
+		6A0393DF28165BAC0036999A /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DB28165BAC0036999A /* NanumGothicExtraBold.otf */; };
+		6A0393E028165BAC0036999A /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DC28165BAC0036999A /* NanumGothicLight.otf */; };
+		6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393E528165F6D0036999A /* UIFontExtension.swift */; };
+		6A0393E8281668850036999A /* StatusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393E7281668850036999A /* StatusImage.swift */; };
 		6AE668A4280D3E7700FB944A /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE668A3280D3E7700FB944A /* Status.swift */; };
-		6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C22806877100E6EF56 /* AppDelegate.swift */; };
-		6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C42806877100E6EF56 /* SceneDelegate.swift */; };
 		6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */; };
 		6AFC67CA2806877100E6EF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67C82806877100E6EF56 /* Main.storyboard */; };
 		6AFC67CC2806877600E6EF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67CB2806877600E6EF56 /* Assets.xcassets */; };
@@ -22,12 +60,103 @@
 		6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6A0393A228165A7A0036999A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A03935E28165A7A0036999A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95209B8BB966524BC76543F99C75F5FE;
+			remoteInfo = FSCalendar;
+		};
+		6A0393A428165A7A0036999A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A03935E28165A7A0036999A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 32F149492BDCEFDB15037F58D3ECE538;
+			remoteInfo = "Pods-DailyTwoDo";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyTwoDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.debug.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.debug.xcconfig"; sourceTree = "<group>"; };
 		555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.release.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.release.xcconfig"; sourceTree = "<group>"; };
-		6AB093B2281014110095ADDE /* SelectedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDate.swift; sourceTree = "<group>"; };
-		6AB093B4281130E60095ADDE /* DayWorksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorksManager.swift; sourceTree = "<group>"; };
+		6A03934928165A7A0036999A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A03934B28165A7A0036999A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6A03934D28165A7A0036999A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6A03934E28165A7A0036999A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6A03934F28165A7A0036999A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A03935028165A7A0036999A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6A03935228165A7A0036999A /* DayWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksViewController.swift; sourceTree = "<group>"; };
+		6A03935328165A7A0036999A /* DayWorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksTableViewCell.swift; sourceTree = "<group>"; };
+		6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = DailyTwoDo.xcworkspace; sourceTree = "<group>"; };
+		6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DailyTwoDo.xcodeproj; sourceTree = "<group>"; };
+		6A03935928165A7A0036999A /* DayWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorks.swift; sourceTree = "<group>"; };
+		6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
+		6A03935C28165A7A0036999A /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		6A03935E28165A7A0036999A /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		6A03936328165A7A0036999A /* Pods-DailyTwoDo.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DailyTwoDo.modulemap"; sourceTree = "<group>"; };
+		6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "Pods-DailyTwoDo-frameworks.sh"; sourceTree = "<group>"; };
+		6A03936528165A7A0036999A /* Pods-DailyTwoDo.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-DailyTwoDo.release.xcconfig"; sourceTree = "<group>"; };
+		6A03936628165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcfilelist; path = "Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist"; sourceTree = "<group>"; };
+		6A03936728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcfilelist; path = "Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist"; sourceTree = "<group>"; };
+		6A03936828165A7A0036999A /* Pods-DailyTwoDo-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pods-DailyTwoDo-umbrella.h"; sourceTree = "<group>"; };
+		6A03936928165A7A0036999A /* Pods-DailyTwoDo.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-DailyTwoDo.debug.xcconfig"; sourceTree = "<group>"; };
+		6A03936A28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcfilelist; path = "Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist"; sourceTree = "<group>"; };
+		6A03936B28165A7A0036999A /* Pods-DailyTwoDo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-DailyTwoDo-Info.plist"; sourceTree = "<group>"; };
+		6A03936C28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Pods-DailyTwoDo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6A03936D28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcfilelist; path = "Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist"; sourceTree = "<group>"; };
+		6A03936E28165A7A0036999A /* Pods-DailyTwoDo-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Pods-DailyTwoDo-dummy.m"; sourceTree = "<group>"; };
+		6A03936F28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-DailyTwoDo-acknowledgements.plist"; sourceTree = "<group>"; };
+		6A03937128165A7A0036999A /* FSCalendar.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FSCalendar.release.xcconfig; sourceTree = "<group>"; };
+		6A03937228165A7A0036999A /* FSCalendar-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FSCalendar-Info.plist"; sourceTree = "<group>"; };
+		6A03937328165A7A0036999A /* FSCalendar-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar-dummy.m"; sourceTree = "<group>"; };
+		6A03937428165A7A0036999A /* FSCalendar.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = FSCalendar.modulemap; sourceTree = "<group>"; };
+		6A03937528165A7A0036999A /* FSCalendar.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FSCalendar.debug.xcconfig; sourceTree = "<group>"; };
+		6A03937628165A7A0036999A /* FSCalendar-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-prefix.pch"; sourceTree = "<group>"; };
+		6A03937728165A7A0036999A /* FSCalendar-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-umbrella.h"; sourceTree = "<group>"; };
+		6A03937828165A7A0036999A /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		6A03937C28165A7A0036999A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6A03937D28165A7A0036999A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6A03937F28165A7A0036999A /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionView.m; sourceTree = "<group>"; };
+		6A03938028165A7A0036999A /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarWeekdayView.h; sourceTree = "<group>"; };
+		6A03938128165A7A0036999A /* FSCalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCollectionViewLayout.h; sourceTree = "<group>"; };
+		6A03938228165A7A0036999A /* FSCalendarDelegationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarDelegationProxy.m; sourceTree = "<group>"; };
+		6A03938328165A7A0036999A /* FSCalendarExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarExtensions.h; sourceTree = "<group>"; };
+		6A03938428165A7A0036999A /* FSCalendarDelegationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarDelegationFactory.m; sourceTree = "<group>"; };
+		6A03938528165A7A0036999A /* FSCalendarSeparatorDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarSeparatorDecorationView.h; sourceTree = "<group>"; };
+		6A03938628165A7A0036999A /* FSCalendarCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCalculator.h; sourceTree = "<group>"; };
+		6A03938728165A7A0036999A /* FSCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarHeaderView.h; sourceTree = "<group>"; };
+		6A03938828165A7A0036999A /* FSCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarConstants.h; sourceTree = "<group>"; };
+		6A03938928165A7A0036999A /* FSCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarAppearance.h; sourceTree = "<group>"; };
+		6A03938A28165A7A0036999A /* FSCalendarTransitionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarTransitionCoordinator.h; sourceTree = "<group>"; };
+		6A03938B28165A7A0036999A /* FSCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCell.m; sourceTree = "<group>"; };
+		6A03938C28165A7A0036999A /* FSCalendarStickyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarStickyHeader.m; sourceTree = "<group>"; };
+		6A03938D28165A7A0036999A /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendar.m; sourceTree = "<group>"; };
+		6A03938E28165A7A0036999A /* FSCalendarCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionViewLayout.m; sourceTree = "<group>"; };
+		6A03938F28165A7A0036999A /* FSCalendarWeekdayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarWeekdayView.m; sourceTree = "<group>"; };
+		6A03939028165A7A0036999A /* FSCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCollectionView.h; sourceTree = "<group>"; };
+		6A03939128165A7A0036999A /* FSCalendarDynamicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarDynamicHeader.h; sourceTree = "<group>"; };
+		6A03939228165A7A0036999A /* FSCalendarSeparatorDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarSeparatorDecorationView.m; sourceTree = "<group>"; };
+		6A03939328165A7A0036999A /* FSCalendarDelegationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarDelegationFactory.h; sourceTree = "<group>"; };
+		6A03939428165A7A0036999A /* FSCalendarExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarExtensions.m; sourceTree = "<group>"; };
+		6A03939528165A7A0036999A /* FSCalendarDelegationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarDelegationProxy.h; sourceTree = "<group>"; };
+		6A03939628165A7A0036999A /* FSCalendarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarConstants.m; sourceTree = "<group>"; };
+		6A03939728165A7A0036999A /* FSCalendarCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCalculator.m; sourceTree = "<group>"; };
+		6A03939828165A7A0036999A /* FSCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarHeaderView.m; sourceTree = "<group>"; };
+		6A03939928165A7A0036999A /* FSCalendarStickyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarStickyHeader.h; sourceTree = "<group>"; };
+		6A03939A28165A7A0036999A /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendar.h; sourceTree = "<group>"; };
+		6A03939B28165A7A0036999A /* FSCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCell.h; sourceTree = "<group>"; };
+		6A03939C28165A7A0036999A /* FSCalendarTransitionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarTransitionCoordinator.m; sourceTree = "<group>"; };
+		6A03939D28165A7A0036999A /* FSCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarAppearance.m; sourceTree = "<group>"; };
+		6A03939E28165A7A0036999A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6A03939F28165A7A0036999A /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		6A0393D928165BAC0036999A /* NanumGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.otf; sourceTree = "<group>"; };
+		6A0393DA28165BAC0036999A /* NanumGothicRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicRegular.otf; sourceTree = "<group>"; };
+		6A0393DB28165BAC0036999A /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
+		6A0393DC28165BAC0036999A /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
+		6A0393E528165F6D0036999A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		6A0393E7281668850036999A /* StatusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusImage.swift; sourceTree = "<group>"; };
 		6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
 		6AE6687D280800D700FB944A /* DayWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorks.swift; sourceTree = "<group>"; };
 		6AE668A3280D3E7700FB944A /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -63,14 +192,211 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6A03934728165A790036999A /* DailyTwoDo */ = {
+			isa = PBXGroup;
+			children = (
+				6A03934828165A7A0036999A /* DailyTwoDo */,
+				6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */,
+				6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */,
+				6A03935828165A7A0036999A /* CoreData */,
+				6A03935D28165A7A0036999A /* Pods */,
+				6A03939E28165A7A0036999A /* Podfile */,
+				6A03939F28165A7A0036999A /* Podfile.lock */,
+			);
+			name = DailyTwoDo;
+			sourceTree = "<group>";
+		};
+		6A03934828165A7A0036999A /* DailyTwoDo */ = {
+			isa = PBXGroup;
+			children = (
+				6A03934928165A7A0036999A /* Assets.xcassets */,
+				6A03934A28165A7A0036999A /* LaunchScreen.storyboard */,
+				6A03934C28165A7A0036999A /* Main.storyboard */,
+				6A03934E28165A7A0036999A /* AppDelegate.swift */,
+				6A03934F28165A7A0036999A /* Info.plist */,
+				6A03935028165A7A0036999A /* SceneDelegate.swift */,
+				6A03935128165A7A0036999A /* DayWorksView */,
+			);
+			path = DailyTwoDo;
+			sourceTree = "<group>";
+		};
+		6A03935128165A7A0036999A /* DayWorksView */ = {
+			isa = PBXGroup;
+			children = (
+				6A03935228165A7A0036999A /* DayWorksViewController.swift */,
+				6A03935328165A7A0036999A /* DayWorksTableViewCell.swift */,
+			);
+			path = DayWorksView;
+			sourceTree = "<group>";
+		};
+		6A03935628165A7A0036999A /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A03935828165A7A0036999A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6A03935928165A7A0036999A /* DayWorks.swift */,
+				6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */,
+				6A03935C28165A7A0036999A /* Status.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		6A03935D28165A7A0036999A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A03935E28165A7A0036999A /* Pods.xcodeproj */,
+				6A03936128165A7A0036999A /* Target Support Files */,
+				6A03937828165A7A0036999A /* Manifest.lock */,
+				6A03937928165A7A0036999A /* Local Podspecs */,
+				6A03937A28165A7A0036999A /* Headers */,
+				6A03937B28165A7A0036999A /* FSCalendar */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A03935F28165A7A0036999A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A0393A328165A7A0036999A /* FSCalendar.framework */,
+				6A0393A528165A7A0036999A /* Pods_DailyTwoDo.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A03936128165A7A0036999A /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A03936228165A7A0036999A /* Pods-DailyTwoDo */,
+				6A03937028165A7A0036999A /* FSCalendar */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		6A03936228165A7A0036999A /* Pods-DailyTwoDo */ = {
+			isa = PBXGroup;
+			children = (
+				6A03936328165A7A0036999A /* Pods-DailyTwoDo.modulemap */,
+				6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */,
+				6A03936528165A7A0036999A /* Pods-DailyTwoDo.release.xcconfig */,
+				6A03936628165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist */,
+				6A03936728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist */,
+				6A03936828165A7A0036999A /* Pods-DailyTwoDo-umbrella.h */,
+				6A03936928165A7A0036999A /* Pods-DailyTwoDo.debug.xcconfig */,
+				6A03936A28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist */,
+				6A03936B28165A7A0036999A /* Pods-DailyTwoDo-Info.plist */,
+				6A03936C28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.markdown */,
+				6A03936D28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist */,
+				6A03936E28165A7A0036999A /* Pods-DailyTwoDo-dummy.m */,
+				6A03936F28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist */,
+			);
+			path = "Pods-DailyTwoDo";
+			sourceTree = "<group>";
+		};
+		6A03937028165A7A0036999A /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				6A03937128165A7A0036999A /* FSCalendar.release.xcconfig */,
+				6A03937228165A7A0036999A /* FSCalendar-Info.plist */,
+				6A03937328165A7A0036999A /* FSCalendar-dummy.m */,
+				6A03937428165A7A0036999A /* FSCalendar.modulemap */,
+				6A03937528165A7A0036999A /* FSCalendar.debug.xcconfig */,
+				6A03937628165A7A0036999A /* FSCalendar-prefix.pch */,
+				6A03937728165A7A0036999A /* FSCalendar-umbrella.h */,
+			);
+			path = FSCalendar;
+			sourceTree = "<group>";
+		};
+		6A03937928165A7A0036999A /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		6A03937A28165A7A0036999A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		6A03937B28165A7A0036999A /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				6A03937C28165A7A0036999A /* LICENSE */,
+				6A03937D28165A7A0036999A /* README.md */,
+				6A03937E28165A7A0036999A /* FSCalendar */,
+			);
+			path = FSCalendar;
+			sourceTree = "<group>";
+		};
+		6A03937E28165A7A0036999A /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				6A03937F28165A7A0036999A /* FSCalendarCollectionView.m */,
+				6A03938028165A7A0036999A /* FSCalendarWeekdayView.h */,
+				6A03938128165A7A0036999A /* FSCalendarCollectionViewLayout.h */,
+				6A03938228165A7A0036999A /* FSCalendarDelegationProxy.m */,
+				6A03938328165A7A0036999A /* FSCalendarExtensions.h */,
+				6A03938428165A7A0036999A /* FSCalendarDelegationFactory.m */,
+				6A03938528165A7A0036999A /* FSCalendarSeparatorDecorationView.h */,
+				6A03938628165A7A0036999A /* FSCalendarCalculator.h */,
+				6A03938728165A7A0036999A /* FSCalendarHeaderView.h */,
+				6A03938828165A7A0036999A /* FSCalendarConstants.h */,
+				6A03938928165A7A0036999A /* FSCalendarAppearance.h */,
+				6A03938A28165A7A0036999A /* FSCalendarTransitionCoordinator.h */,
+				6A03938B28165A7A0036999A /* FSCalendarCell.m */,
+				6A03938C28165A7A0036999A /* FSCalendarStickyHeader.m */,
+				6A03938D28165A7A0036999A /* FSCalendar.m */,
+				6A03938E28165A7A0036999A /* FSCalendarCollectionViewLayout.m */,
+				6A03938F28165A7A0036999A /* FSCalendarWeekdayView.m */,
+				6A03939028165A7A0036999A /* FSCalendarCollectionView.h */,
+				6A03939128165A7A0036999A /* FSCalendarDynamicHeader.h */,
+				6A03939228165A7A0036999A /* FSCalendarSeparatorDecorationView.m */,
+				6A03939328165A7A0036999A /* FSCalendarDelegationFactory.h */,
+				6A03939428165A7A0036999A /* FSCalendarExtensions.m */,
+				6A03939528165A7A0036999A /* FSCalendarDelegationProxy.h */,
+				6A03939628165A7A0036999A /* FSCalendarConstants.m */,
+				6A03939728165A7A0036999A /* FSCalendarCalculator.m */,
+				6A03939828165A7A0036999A /* FSCalendarHeaderView.m */,
+				6A03939928165A7A0036999A /* FSCalendarStickyHeader.h */,
+				6A03939A28165A7A0036999A /* FSCalendar.h */,
+				6A03939B28165A7A0036999A /* FSCalendarCell.h */,
+				6A03939C28165A7A0036999A /* FSCalendarTransitionCoordinator.m */,
+				6A03939D28165A7A0036999A /* FSCalendarAppearance.m */,
+			);
+			path = FSCalendar;
+			sourceTree = "<group>";
+		};
+		6A0393D528165A8E0036999A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6A0393E528165F6D0036999A /* UIFontExtension.swift */,
+				6A0393D828165BAC0036999A /* NanumFont_OTF_GOTHIC */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6A0393D828165BAC0036999A /* NanumFont_OTF_GOTHIC */ = {
+			isa = PBXGroup;
+			children = (
+				6A0393D928165BAC0036999A /* NanumGothicBold.otf */,
+				6A0393DA28165BAC0036999A /* NanumGothicRegular.otf */,
+				6A0393DB28165BAC0036999A /* NanumGothicExtraBold.otf */,
+				6A0393DC28165BAC0036999A /* NanumGothicLight.otf */,
+			);
+			path = NanumFont_OTF_GOTHIC;
+			sourceTree = "<group>";
+		};
 		6ADC86502807ED4200F7D3A0 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				6ADC86452807EBAB00F7D3A0 /* DayWorks.xcdatamodeld */,
 				6AE6687D280800D700FB944A /* DayWorks.swift */,
-				6AB093B2281014110095ADDE /* SelectedDate.swift */,
 				6AE668A3280D3E7700FB944A /* Status.swift */,
-				6AB093B4281130E60095ADDE /* DayWorksManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -79,7 +405,9 @@
 			isa = PBXGroup;
 			children = (
 				6ADC86502807ED4200F7D3A0 /* CoreData */,
+				6AFC67D8280698A700E6EF56 /* DayWorksView */,
 				6AFC67C12806877100E6EF56 /* DailyTwoDo */,
+				6A03934728165A790036999A /* DailyTwoDo */,
 				6AFC67C02806877100E6EF56 /* Products */,
 				5543525A826F022C5924773C /* Pods */,
 				FDFB800D939577A66581ED5A /* Frameworks */,
@@ -103,7 +431,7 @@
 				6AFC67CB2806877600E6EF56 /* Assets.xcassets */,
 				6AFC67CD2806877600E6EF56 /* LaunchScreen.storyboard */,
 				6AFC67D02806877600E6EF56 /* Info.plist */,
-				6AFC67D8280698A700E6EF56 /* DayWorksView */,
+				6A0393D528165A8E0036999A /* Fonts */,
 			);
 			path = DailyTwoDo;
 			sourceTree = "<group>";
@@ -113,6 +441,7 @@
 			children = (
 				6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */,
 				6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */,
+				6A0393E7281668850036999A /* StatusImage.swift */,
 			);
 			path = DayWorksView;
 			sourceTree = "<group>";
@@ -173,6 +502,16 @@
 			mainGroup = 6AFC67B62806877100E6EF56;
 			productRefGroup = 6AFC67C02806877100E6EF56 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6A03935628165A7A0036999A /* Products */;
+					ProjectRef = 6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */;
+				},
+				{
+					ProductGroup = 6A03935F28165A7A0036999A /* Products */;
+					ProjectRef = 6A03935E28165A7A0036999A /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6AFC67BE2806877100E6EF56 /* DailyTwoDo */,
@@ -180,14 +519,52 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		6A0393A328165A7A0036999A /* FSCalendar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FSCalendar.framework;
+			remoteRef = 6A0393A228165A7A0036999A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6A0393A528165A7A0036999A /* Pods_DailyTwoDo.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_DailyTwoDo.framework;
+			remoteRef = 6A0393A428165A7A0036999A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		6AFC67BD2806877100E6EF56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6AFC67CF2806877600E6EF56 /* LaunchScreen.storyboard in Resources */,
+				6A0393D428165A7A0036999A /* Podfile.lock in Resources */,
 				6AFC67CC2806877600E6EF56 /* Assets.xcassets in Resources */,
+				6A0393DF28165BAC0036999A /* NanumGothicExtraBold.otf in Resources */,
+				6A0393BC28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist in Resources */,
+				6A0393B828165A7A0036999A /* Pods-DailyTwoDo-Info.plist in Resources */,
+				6A0393C328165A7A0036999A /* README.md in Resources */,
+				6A0393B228165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh in Resources */,
+				6A0393BE28165A7A0036999A /* FSCalendar-Info.plist in Resources */,
+				6A0393B928165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.markdown in Resources */,
+				6A0393D328165A7A0036999A /* Podfile in Resources */,
+				6A0393A828165A7A0036999A /* Main.storyboard in Resources */,
+				6A0393A728165A7A0036999A /* LaunchScreen.storyboard in Resources */,
+				6A0393B528165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist in Resources */,
+				6A0393DE28165BAC0036999A /* NanumGothicRegular.otf in Resources */,
+				6A0393C228165A7A0036999A /* LICENSE in Resources */,
+				6A0393DD28165BAC0036999A /* NanumGothicBold.otf in Resources */,
+				6A0393B728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist in Resources */,
+				6A0393C128165A7A0036999A /* Manifest.lock in Resources */,
 				6AFC67CA2806877100E6EF56 /* Main.storyboard in Resources */,
+				6A0393AE28165A7A0036999A /* DailyTwoDo.xcworkspace in Resources */,
+				6A0393E028165BAC0036999A /* NanumGothicLight.otf in Resources */,
+				6A0393BA28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist in Resources */,
+				6A0393B428165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,21 +617,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ADC86472807EBAB00F7D3A0 /* DayWorks.xcdatamodeld in Sources */,
-				6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */,
+				6A0393D028165A7A0036999A /* FSCalendarHeaderView.m in Sources */,
+				6A0393CE28165A7A0036999A /* FSCalendarConstants.m in Sources */,
+				6A0393CA28165A7A0036999A /* FSCalendarCollectionViewLayout.m in Sources */,
+				6A0393CF28165A7A0036999A /* FSCalendarCalculator.m in Sources */,
+				6A0393C928165A7A0036999A /* FSCalendar.m in Sources */,
+				6A0393D228165A7A0036999A /* FSCalendarAppearance.m in Sources */,
+				6A0393C628165A7A0036999A /* FSCalendarDelegationFactory.m in Sources */,
+				6A0393CB28165A7A0036999A /* FSCalendarWeekdayView.m in Sources */,
+				6A0393C828165A7A0036999A /* FSCalendarStickyHeader.m in Sources */,
+				6A0393CD28165A7A0036999A /* FSCalendarExtensions.m in Sources */,
+				6A0393D128165A7A0036999A /* FSCalendarTransitionCoordinator.m in Sources */,
+				6A0393BF28165A7A0036999A /* FSCalendar-dummy.m in Sources */,
+				6A0393C728165A7A0036999A /* FSCalendarCell.m in Sources */,
+				6A0393C428165A7A0036999A /* FSCalendarCollectionView.m in Sources */,
+				6A0393C528165A7A0036999A /* FSCalendarDelegationProxy.m in Sources */,
+				6A0393CC28165A7A0036999A /* FSCalendarSeparatorDecorationView.m in Sources */,
+				6A0393A928165A7A0036999A /* AppDelegate.swift in Sources */,
+				6A0393AB28165A7A0036999A /* SceneDelegate.swift in Sources */,
+				6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */,
 				6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */,
-				6AB093B5281130E60095ADDE /* DayWorksManager.swift in Sources */,
+				6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */,
+				6A0393AF28165A7A0036999A /* DayWorks.swift in Sources */,
+				6A0393E8281668850036999A /* StatusImage.swift in Sources */,
 				6AE668A4280D3E7700FB944A /* Status.swift in Sources */,
-				6AB093B3281014110095ADDE /* SelectedDate.swift in Sources */,
-				6AFC67C32806877100E6EF56 /* AppDelegate.swift in Sources */,
-				6AFC67C52806877100E6EF56 /* SceneDelegate.swift in Sources */,
-				6AE6687E280800D700FB944A /* DayWorks.swift in Sources */,
+				6A0393B028165A7A0036999A /* DayWorks.xcdatamodeld in Sources */,
+				6A0393BB28165A7A0036999A /* Pods-DailyTwoDo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6A03934A28165A7A0036999A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A03934B28165A7A0036999A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6A03934C28165A7A0036999A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A03934D28165A7A0036999A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		6AFC67C82806877100E6EF56 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -472,6 +882,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */,
+			);
+			currentVersion = 6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */;
+			path = DayWorks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		6ADC86452807EBAB00F7D3A0 /* DayWorks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

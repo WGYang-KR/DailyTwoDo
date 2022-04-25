@@ -13,6 +13,11 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
     @IBOutlet weak var rightButton: UIButton! //할일 상태 표시 및 변경 호출
     weak var superTableView: UITableView! //셀이 속한 테이블뷰
     
+    @IBAction func touchUpInsideRightButton(_ sender: UIButton) {
+        print("사각형 클릭됨")
+        //선택상자 출력
+    
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         
@@ -24,10 +29,10 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
         print("텍스트필드 편집완료. cellRow:\(cellRow) ")
         
         //수정필요:: 마지막 칸이면 추가, 아니면 수정 실행.
-        if cellRow.row < DayWorks.shared.worksArray.count {
+        if cellRow.row < DayWorks.shared.selectedWorks.count {
         
             print("수정실행")
-            if DayWorks.shared.editWork(ofDate: SelectedDate.shared.date, ofOrder: cellRow.row, changeTitle: textField.text ?? "") {
+            if DayWorks.shared.editWork(ofOrder: cellRow.row, changeTitle: textField.text ?? "") {
                 print("수정완료")
                 superTableView.reloadRows(at: [cellRow], with: .none)
             }
