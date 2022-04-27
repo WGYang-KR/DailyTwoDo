@@ -11,12 +11,26 @@ class DayWorksTableViewCell: UITableViewCell,UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField! //할일 내용
     @IBOutlet weak var rightButton: UIButton! //할일 상태 표시 및 변경 호출
-    weak var superTableView: UITableView! //셀이 속한 테이블뷰
+    var superTableView: UITableView! //셀이 속한 테이블뷰
+    var status: Status!
+    
     
     @IBAction func touchUpInsideRightButton(_ sender: UIButton) {
-        print("사각형 클릭됨")
-        //선택상자 출력
-    
+        
+        print("상태 클릭됨")
+        
+        guard let cellIndexPath = self.superTableView.indexPath(for: self) else {
+            print("셀 위치 찾기 실패")
+            return
+        }
+        
+        let statusAlertController = StatusAlertController(currentStatus: status, cellOrder: cellIndexPath.row, currentCell: self)
+        if let rootVC = self.window?.rootViewController {
+            statusAlertController.present(inViewController: rootVC, animated: true)
+        } else {
+            print("rootVC 미존재")
+        }
+   
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {

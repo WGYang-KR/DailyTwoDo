@@ -7,7 +7,7 @@
     </entity>
     <entity name="Work" representedClassName="WorkMo" syncable="YES" codeGenerationType="class">
         <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="status" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="statusValue" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="Default String"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="works" inverseEntity="Day"/>
     </entity>

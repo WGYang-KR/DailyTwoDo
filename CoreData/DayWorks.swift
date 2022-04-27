@@ -82,6 +82,31 @@ class DayWorks {
         return day.works?.sortedArray(using: [sortDescription]) as? [WorkMo] ?? []
     }
     
+    func changeStatus(ofOrder: Int , status: Status) -> Bool {
+        print("changeStatus()호출 order:\(ofOrder), status:\(status)")
+        
+        let day = selectedDay
+        guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(ofOrder)}).first else {
+            print("changeStatus: 해당 하는 work 없음")
+            return false
+        }
+        
+        guard let currentWork = work as? WorkMo else {
+            print("WorkMo변화 실패")
+            return false
+        }
+        
+        currentWork.status = status
+        
+        do { try context.save()
+            return true
+        }
+        catch {
+            context.rollback()
+            return false
+        }
+        
+    }
     
     //yyyy-MM-dd HH:mm:ss -> yyyy-MM-dd
     private func strDateOnly(date: Date) -> String {
@@ -158,7 +183,7 @@ class DayWorks {
             return false
         }
         workMo.title = title
-        workMo.status = Int16(status.rawValue)
+        workMo.status = .inComplete
         workMo.order = Int16(dayMo.works?.count ?? 0)
         
         dayMo.addToWorks(workMo) //저장소에 추가

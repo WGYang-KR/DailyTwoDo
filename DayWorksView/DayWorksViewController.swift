@@ -115,14 +115,18 @@ extension DayWorksViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DayWorksTableViewCell else { return DayWorksTableViewCell() }
   
         cell.superTableView = self.tableView
+        
         let numWorks = DayWorks.shared.selectedWorks.count
     
         if indexPath.row < numWorks {
             //목록cell
             cell.textField.text = DayWorks.shared.selectedWorks[indexPath.row].title
+            cell.status = DayWorks.shared.selectedWorks[indexPath.row].status
+            
         } else {
             //입력cell
             cell.textField.text = ""
+            cell.status = .inComplete
         }
         return cell
     }
