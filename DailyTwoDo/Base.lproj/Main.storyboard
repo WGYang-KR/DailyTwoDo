@@ -34,8 +34,11 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nIO-wL-myI" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="372"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="mfQ-5e-Qdg"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
                                         <real key="value" value="0.0"/>
@@ -66,14 +69,14 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zt-Dc-7AR">
-                                <rect key="frame" x="0.0" y="460" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="488" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="xRc-5e-xjb"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eJS-Vz-ogT">
-                                <rect key="frame" x="0.0" y="461" width="414" height="401"/>
+                                <rect key="frame" x="0.0" y="489" width="414" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="systemGray6Color"/>
                                 <prototypes>
@@ -92,7 +95,7 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system" title=""/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
                                                     <connections>
                                                         <action selector="touchUpInsideRightButton:" destination="44z-gt-78I" eventType="touchUpInside" id="kcW-i4-ACd"/>
                                                     </connections>
@@ -139,7 +142,6 @@
                             <constraint firstItem="8zt-Dc-7AR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JyQ-hM-imo"/>
                             <constraint firstItem="eJS-Vz-ogT" firstAttribute="top" secondItem="8zt-Dc-7AR" secondAttribute="bottom" id="L4f-se-qZQ"/>
                             <constraint firstItem="eJS-Vz-ogT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Znz-8L-r5y"/>
-                            <constraint firstItem="nIO-wL-myI" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="1:2.2" id="cZR-3Y-yQX"/>
                             <constraint firstItem="nIO-wL-myI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ev7-rS-WR1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eJS-Vz-ogT" secondAttribute="bottom" id="ibn-Ao-qkp"/>
                             <constraint firstItem="nIO-wL-myI" firstAttribute="top" secondItem="n7b-BR-0hU" secondAttribute="bottom" id="uhE-eS-0re"/>
@@ -149,6 +151,7 @@
                     <tabBarItem key="tabBarItem" title="일자별" image="calendar" catalog="system" id="vaX-ay-c5p"/>
                     <connections>
                         <outlet property="calendar" destination="nIO-wL-myI" id="WZr-bD-gMK"/>
+                        <outlet property="calendarHeight" destination="mfQ-5e-Qdg" id="12k-3w-v0E"/>
                         <outlet property="customNavigationItem" destination="eXJ-Fg-lzN" id="KY6-2L-OEp"/>
                         <outlet property="tableView" destination="eJS-Vz-ogT" id="nZp-Ax-5CG"/>
                     </connections>
@@ -160,7 +163,7 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

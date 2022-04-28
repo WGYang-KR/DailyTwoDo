@@ -46,12 +46,12 @@ class StatusAlertController {
             self.updateStatus()
         })
         tempActionDic[Status.inComplete.rawValue] = inCompleteAction
-        let moveAction = UIAlertAction(title: "이동", style: .default, handler: { _ in
-            //날짜 이동
-            
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in
+            //취소 이동
         })
-        tempActionDic[Status.allCases.count] = moveAction //마지막
-
+        
+        tempActionDic[Status.allCases.count] = cancelAction //마지막
+        
         actionDic = tempActionDic
         
         //MARK: 현재상태 제외한 Action만 추가.

@@ -13,6 +13,7 @@ class DayWorksViewController: UIViewController{
 
     @IBOutlet weak var customNavigationItem: UINavigationItem!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "DayWorksCell"
    
@@ -27,9 +28,13 @@ class DayWorksViewController: UIViewController{
 
         
         //MARK: - calendar 초기 세팅
-        print("초기 날짜 세팅")
+
+        // 한달 단위(기본값)
+        calendar.scope = .month
+        // 일주일 단위
+        calendar.scope = .week
         calendar.select(DayWorks.shared.selectedDate) //오늘 날짜 선택
-        print("초기 날짜 세팅 완료")
+      
         calendar.appearance.caseOptions =  FSCalendarCaseOptions.weekdayUsesSingleUpperCase
         calendar.locale = Locale(identifier:"ko_KR") //Locale.current.identifier
         print(calendar.locale)
@@ -45,7 +50,27 @@ class DayWorksViewController: UIViewController{
         dateFormatter.dateFormat = "yyyy년 MM월"
         customNavigationItem.title = dateFormatter.string(from: DayWorks.shared.selectedDate)
         
+        //MARK: 스와이프 시 달력 높이 조정
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
+        swipeUp.direction = .up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
     }
+    
+    @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
+
+        if swipe.direction == .up {
+            calendar.setScope(.week, animated: true)
+        }
+        else if swipe.direction == .down {
+            calendar.setScope(.month, animated: true)
+        }
+        
+    }
+    
 }
 
 extension DayWorksViewController: FSCalendarDelegate{
@@ -80,6 +105,15 @@ extension DayWorksViewController: FSCalendarDelegate{
         return false
     }
     
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+           
+            calendarHeight.constant = bounds.height
+            UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+            }
+        
+    }
+    
 }
 
 
@@ -101,6 +135,31 @@ extension DayWorksViewController: UITableViewDelegate {
      
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    //테이블 스크롤 시 달력 크기 조정
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollViewDidScroll")
+        let yVelocity = scrollView.panGestureRecognizer.velocity(in: scrollView).y
+        
+        //위로 스크롤
+        if yVelocity < 0 {
+            //위로 스크롤
+            //달력 .week로
+            calendar.setScope(.week, animated: true)
+            
+        }
+        else if yVelocity > 0 {
+            //아래로 스크롤
+                //테이블 최상단이면 달력 .month로
+                let contentYoffset = scrollView.contentOffset.y
+                print("contentYoffset: \(contentYoffset)")
+                if contentYoffset <= 0 {
+                
+                    calendar.setScope(.month, animated: true)
+                }
+        }
+    }
+    
 }
 
 extension DayWorksViewController: UITableViewDataSource {
@@ -122,11 +181,14 @@ extension DayWorksViewController: UITableViewDataSource {
             //목록cell
             cell.textField.text = DayWorks.shared.selectedWorks[indexPath.row].title
             cell.status = DayWorks.shared.selectedWorks[indexPath.row].status
+            cell.rightButton.isHidden = false
+            StatusImageManager.setImageOfButton(cell.rightButton, status: cell.status)
             
         } else {
             //입력cell
             cell.textField.text = ""
             cell.status = .inComplete
+            cell.rightButton.isHidden = true
         }
         return cell
     }
