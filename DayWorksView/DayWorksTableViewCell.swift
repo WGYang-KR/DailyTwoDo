@@ -66,18 +66,26 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
         }
         print("텍스트필드 편집완료. cellRow:\(cellRow) ")
         
-        //수정필요:: 마지막 칸이면 추가, 아니면 수정 실행.
+        //중간 칸이면 수정, 마지막 칸이면 생성
         if cellRow.row < DayWorks.shared.selectedWorks.count {
         
-            print("수정실행")
-            if DayWorks.shared.editWork(ofOrder: cellRow.row, changeTitle: textField.text ?? "") {
-                print("수정완료")
-                superTableView.reloadRows(at: [cellRow], with: .none)
+            //할일 내용 수정 실행. 내용 없으면 삭제.
+            if let newText = textField.text, newText != "" {
+                print("할일 수정 실행")
+                if DayWorks.shared.editWork(ofOrder: cellRow.row, changeTitle: newText) {
+                    print("할일 수정 성공")
+                    superTableView.reloadRows(at: [cellRow], with: .none)
+                }
+            }  else {
+                print("내용 없음->할일 삭제")
+                if DayWorks.shared.deleteWork(order: cellRow.row) {
+                    print("할일 삭제 성공")
+                    superTableView.deleteRows(at: [cellRow], with: .none)
+                }
             }
-            
-        
-        } else {
-            print("생성실행")
+        }
+        else {
+            print("할일 생성 실행")
             DayWorks.shared.newWork(title: textField.text ?? "")
             superTableView.reloadData()
         }
