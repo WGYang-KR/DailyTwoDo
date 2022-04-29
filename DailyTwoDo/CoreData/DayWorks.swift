@@ -202,7 +202,6 @@ class DayWorks {
     func editWork(ofOrder: Int, changeTitle: String) -> Bool {
         print("editWork()호출")
         let day = selectedDay
-        print(day.works)
         guard let work = day.works?.filter({($0 as! WorkMo).order == Int16(ofOrder)}).first else {
             print("editWork: 해당 하는 work 없음")
             return false
