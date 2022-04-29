@@ -25,25 +25,9 @@
 		6A0393BB28165A7A0036999A /* Pods-DailyTwoDo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03936E28165A7A0036999A /* Pods-DailyTwoDo-dummy.m */; };
 		6A0393BC28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936F28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist */; };
 		6A0393BE28165A7A0036999A /* FSCalendar-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937228165A7A0036999A /* FSCalendar-Info.plist */; };
-		6A0393BF28165A7A0036999A /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03937328165A7A0036999A /* FSCalendar-dummy.m */; };
 		6A0393C128165A7A0036999A /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937828165A7A0036999A /* Manifest.lock */; };
 		6A0393C228165A7A0036999A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937C28165A7A0036999A /* LICENSE */; };
 		6A0393C328165A7A0036999A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6A03937D28165A7A0036999A /* README.md */; };
-		6A0393C428165A7A0036999A /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03937F28165A7A0036999A /* FSCalendarCollectionView.m */; };
-		6A0393C528165A7A0036999A /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938228165A7A0036999A /* FSCalendarDelegationProxy.m */; };
-		6A0393C628165A7A0036999A /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938428165A7A0036999A /* FSCalendarDelegationFactory.m */; };
-		6A0393C728165A7A0036999A /* FSCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938B28165A7A0036999A /* FSCalendarCell.m */; };
-		6A0393C828165A7A0036999A /* FSCalendarStickyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938C28165A7A0036999A /* FSCalendarStickyHeader.m */; };
-		6A0393C928165A7A0036999A /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938D28165A7A0036999A /* FSCalendar.m */; };
-		6A0393CA28165A7A0036999A /* FSCalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938E28165A7A0036999A /* FSCalendarCollectionViewLayout.m */; };
-		6A0393CB28165A7A0036999A /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03938F28165A7A0036999A /* FSCalendarWeekdayView.m */; };
-		6A0393CC28165A7A0036999A /* FSCalendarSeparatorDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939228165A7A0036999A /* FSCalendarSeparatorDecorationView.m */; };
-		6A0393CD28165A7A0036999A /* FSCalendarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939428165A7A0036999A /* FSCalendarExtensions.m */; };
-		6A0393CE28165A7A0036999A /* FSCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939628165A7A0036999A /* FSCalendarConstants.m */; };
-		6A0393CF28165A7A0036999A /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939728165A7A0036999A /* FSCalendarCalculator.m */; };
-		6A0393D028165A7A0036999A /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939828165A7A0036999A /* FSCalendarHeaderView.m */; };
-		6A0393D128165A7A0036999A /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939C28165A7A0036999A /* FSCalendarTransitionCoordinator.m */; };
-		6A0393D228165A7A0036999A /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03939D28165A7A0036999A /* FSCalendarAppearance.m */; };
 		6A0393D328165A7A0036999A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6A03939E28165A7A0036999A /* Podfile */; };
 		6A0393D428165A7A0036999A /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 6A03939F28165A7A0036999A /* Podfile.lock */; };
 		6A0393DD28165BAC0036999A /* NanumGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393D928165BAC0036999A /* NanumGothicBold.otf */; };
@@ -620,22 +604,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0393D028165A7A0036999A /* FSCalendarHeaderView.m in Sources */,
-				6A0393CE28165A7A0036999A /* FSCalendarConstants.m in Sources */,
-				6A0393CA28165A7A0036999A /* FSCalendarCollectionViewLayout.m in Sources */,
-				6A0393CF28165A7A0036999A /* FSCalendarCalculator.m in Sources */,
-				6A0393C928165A7A0036999A /* FSCalendar.m in Sources */,
-				6A0393D228165A7A0036999A /* FSCalendarAppearance.m in Sources */,
-				6A0393C628165A7A0036999A /* FSCalendarDelegationFactory.m in Sources */,
-				6A0393CB28165A7A0036999A /* FSCalendarWeekdayView.m in Sources */,
-				6A0393C828165A7A0036999A /* FSCalendarStickyHeader.m in Sources */,
-				6A0393CD28165A7A0036999A /* FSCalendarExtensions.m in Sources */,
-				6A0393D128165A7A0036999A /* FSCalendarTransitionCoordinator.m in Sources */,
-				6A0393BF28165A7A0036999A /* FSCalendar-dummy.m in Sources */,
-				6A0393C728165A7A0036999A /* FSCalendarCell.m in Sources */,
-				6A0393C428165A7A0036999A /* FSCalendarCollectionView.m in Sources */,
-				6A0393C528165A7A0036999A /* FSCalendarDelegationProxy.m in Sources */,
-				6A0393CC28165A7A0036999A /* FSCalendarSeparatorDecorationView.m in Sources */,
 				6A0393A928165A7A0036999A /* AppDelegate.swift in Sources */,
 				6A0393AB28165A7A0036999A /* SceneDelegate.swift in Sources */,
 				6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */,
