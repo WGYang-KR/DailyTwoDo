@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		08C0C6F7E794D6E90D6921BF /* Pods_DailyTwoDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */; };
-		6A0393AE28165A7A0036999A /* DailyTwoDo.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */; };
 		6A0393B228165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */; };
 		6A0393B428165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936628165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist */; };
 		6A0393B528165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist */; };
@@ -64,11 +63,6 @@
 		16F5FF5128DE37CA0106F246 /* Pods_DailyTwoDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyTwoDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43590CD87B9859E7B5015FFB /* Pods-DailyTwoDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.debug.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.debug.xcconfig"; sourceTree = "<group>"; };
 		555D6047AF7B4D9C50AED72E /* Pods-DailyTwoDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTwoDo.release.xcconfig"; path = "Target Support Files/Pods-DailyTwoDo/Pods-DailyTwoDo.release.xcconfig"; sourceTree = "<group>"; };
-		6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = DailyTwoDo.xcworkspace; sourceTree = "<group>"; };
-		6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DailyTwoDo.xcodeproj; sourceTree = "<group>"; };
-		6A03935928165A7A0036999A /* DayWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorks.swift; sourceTree = "<group>"; };
-		6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
-		6A03935C28165A7A0036999A /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		6A03935E28165A7A0036999A /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
 		6A03936328165A7A0036999A /* Pods-DailyTwoDo.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DailyTwoDo.modulemap"; sourceTree = "<group>"; };
 		6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "Pods-DailyTwoDo-frameworks.sh"; sourceTree = "<group>"; };
@@ -171,29 +165,11 @@
 		6A03934728165A790036999A /* DailyTwoDo */ = {
 			isa = PBXGroup;
 			children = (
-				6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */,
-				6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */,
-				6A03935828165A7A0036999A /* CoreData */,
 				6A03935D28165A7A0036999A /* Pods */,
 				6A03939E28165A7A0036999A /* Podfile */,
 				6A03939F28165A7A0036999A /* Podfile.lock */,
 			);
 			name = DailyTwoDo;
-			sourceTree = "<group>";
-		};
-		6A03935628165A7A0036999A /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6A03935828165A7A0036999A /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				6A03935928165A7A0036999A /* DayWorks.swift */,
-				6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */,
-				6A03935C28165A7A0036999A /* Status.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		6A03935D28165A7A0036999A /* Pods */ = {
@@ -457,10 +433,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6A03935628165A7A0036999A /* Products */;
-					ProjectRef = 6A03935528165A7A0036999A /* DailyTwoDo.xcodeproj */;
-				},
-				{
 					ProductGroup = 6A03935F28165A7A0036999A /* Products */;
 					ProjectRef = 6A03935E28165A7A0036999A /* Pods.xcodeproj */;
 				},
@@ -512,7 +484,6 @@
 				6A0393B728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-output-files.xcfilelist in Resources */,
 				6A0393C128165A7A0036999A /* Manifest.lock in Resources */,
 				6AFC67CA2806877100E6EF56 /* Main.storyboard in Resources */,
-				6A0393AE28165A7A0036999A /* DailyTwoDo.xcworkspace in Resources */,
 				6A0393E028165BAC0036999A /* NanumGothicLight.otf in Resources */,
 				6A0393BA28165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-output-files.xcfilelist in Resources */,
 				6A0393B428165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist in Resources */,
@@ -802,16 +773,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */,
-			);
-			currentVersion = 6A03935B28165A7A0036999A /* WorksCoreData.xcdatamodel */;
-			path = DayWorks.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		6AD8C89B281BA42000675990 /* DayWorks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
