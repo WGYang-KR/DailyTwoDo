@@ -13,8 +13,6 @@
 		6A0393A928165A7A0036999A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03934E28165A7A0036999A /* AppDelegate.swift */; };
 		6A0393AB28165A7A0036999A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935028165A7A0036999A /* SceneDelegate.swift */; };
 		6A0393AE28165A7A0036999A /* DailyTwoDo.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 6A03935428165A7A0036999A /* DailyTwoDo.xcworkspace */; };
-		6A0393AF28165A7A0036999A /* DayWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935928165A7A0036999A /* DayWorks.swift */; };
-		6A0393B028165A7A0036999A /* DayWorks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A03935A28165A7A0036999A /* DayWorks.xcdatamodeld */; };
 		6A0393B228165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936428165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh */; };
 		6A0393B428165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936628165A7A0036999A /* Pods-DailyTwoDo-frameworks-Release-input-files.xcfilelist */; };
 		6A0393B528165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 6A03936728165A7A0036999A /* Pods-DailyTwoDo-frameworks-Debug-input-files.xcfilelist */; };
@@ -35,14 +33,16 @@
 		6A0393DF28165BAC0036999A /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DB28165BAC0036999A /* NanumGothicExtraBold.otf */; };
 		6A0393E028165BAC0036999A /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DC28165BAC0036999A /* NanumGothicLight.otf */; };
 		6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393E528165F6D0036999A /* UIFontExtension.swift */; };
-		6A0393E8281668850036999A /* StatusImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393E7281668850036999A /* StatusImageManager.swift */; };
-		6A0393EC2817EFBF0036999A /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393EB2817EFBF0036999A /* Status.swift */; };
-		6AD8C7AF2818DC9800675990 /* StatusAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C7AD2818DC9800675990 /* StatusAlertController.swift */; };
-		6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */; };
+		6AD8C89E281BA42000675990 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C895281BA42000675990 /* DayWorksViewController.swift */; };
+		6AD8C89F281BA42000675990 /* StatusImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C896281BA42000675990 /* StatusImageManager.swift */; };
+		6AD8C8A0281BA42000675990 /* DayWorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C897281BA42000675990 /* DayWorksTableViewCell.swift */; };
+		6AD8C8A1281BA42000675990 /* StatusAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C898281BA42000675990 /* StatusAlertController.swift */; };
+		6AD8C8A2281BA42000675990 /* DayWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C89A281BA42000675990 /* DayWorks.swift */; };
+		6AD8C8A3281BA42000675990 /* DayWorks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C89B281BA42000675990 /* DayWorks.xcdatamodeld */; };
+		6AD8C8A4281BA42000675990 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C89D281BA42000675990 /* Status.swift */; };
 		6AFC67CA2806877100E6EF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67C82806877100E6EF56 /* Main.storyboard */; };
 		6AFC67CC2806877600E6EF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67CB2806877600E6EF56 /* Assets.xcassets */; };
 		6AFC67CF2806877600E6EF56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC67CD2806877600E6EF56 /* LaunchScreen.storyboard */; };
-		6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,20 +141,20 @@
 		6A0393DB28165BAC0036999A /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
 		6A0393DC28165BAC0036999A /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
 		6A0393E528165F6D0036999A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		6A0393E7281668850036999A /* StatusImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusImageManager.swift; sourceTree = "<group>"; };
-		6A0393EB2817EFBF0036999A /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		6AD8C7AD2818DC9800675990 /* StatusAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusAlertController.swift; sourceTree = "<group>"; };
-		6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
-		6AE6687D280800D700FB944A /* DayWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorks.swift; sourceTree = "<group>"; };
+		6AD8C895281BA42000675990 /* DayWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksViewController.swift; sourceTree = "<group>"; };
+		6AD8C896281BA42000675990 /* StatusImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusImageManager.swift; sourceTree = "<group>"; };
+		6AD8C897281BA42000675990 /* DayWorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksTableViewCell.swift; sourceTree = "<group>"; };
+		6AD8C898281BA42000675990 /* StatusAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusAlertController.swift; sourceTree = "<group>"; };
+		6AD8C89A281BA42000675990 /* DayWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorks.swift; sourceTree = "<group>"; };
+		6AD8C89C281BA42000675990 /* WorksCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorksCoreData.xcdatamodel; sourceTree = "<group>"; };
+		6AD8C89D281BA42000675990 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		6AFC67BF2806877100E6EF56 /* DailyTwoDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTwoDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFC67C22806877100E6EF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AFC67C42806877100E6EF56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorksViewController.swift; sourceTree = "<group>"; };
 		6AFC67C92806877100E6EF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AFC67CB2806877600E6EF56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AFC67CE2806877600E6EF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AFC67D02806877600E6EF56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWorksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,12 +377,23 @@
 			path = NanumFont_OTF_GOTHIC;
 			sourceTree = "<group>";
 		};
-		6ADC86502807ED4200F7D3A0 /* CoreData */ = {
+		6AD8C894281BA42000675990 /* DayWorksView */ = {
 			isa = PBXGroup;
 			children = (
-				6ADC86452807EBAB00F7D3A0 /* DayWorks.xcdatamodeld */,
-				6AE6687D280800D700FB944A /* DayWorks.swift */,
-				6A0393EB2817EFBF0036999A /* Status.swift */,
+				6AD8C895281BA42000675990 /* DayWorksViewController.swift */,
+				6AD8C896281BA42000675990 /* StatusImageManager.swift */,
+				6AD8C897281BA42000675990 /* DayWorksTableViewCell.swift */,
+				6AD8C898281BA42000675990 /* StatusAlertController.swift */,
+			);
+			path = DayWorksView;
+			sourceTree = "<group>";
+		};
+		6AD8C899281BA42000675990 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6AD8C89A281BA42000675990 /* DayWorks.swift */,
+				6AD8C89B281BA42000675990 /* DayWorks.xcdatamodeld */,
+				6AD8C89D281BA42000675990 /* Status.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -390,8 +401,6 @@
 		6AFC67B62806877100E6EF56 = {
 			isa = PBXGroup;
 			children = (
-				6ADC86502807ED4200F7D3A0 /* CoreData */,
-				6AFC67D8280698A700E6EF56 /* DayWorksView */,
 				6AFC67C12806877100E6EF56 /* DailyTwoDo */,
 				6A03934728165A790036999A /* DailyTwoDo */,
 				6AFC67C02806877100E6EF56 /* Products */,
@@ -411,6 +420,8 @@
 		6AFC67C12806877100E6EF56 /* DailyTwoDo */ = {
 			isa = PBXGroup;
 			children = (
+				6AD8C899281BA42000675990 /* CoreData */,
+				6AD8C894281BA42000675990 /* DayWorksView */,
 				6AFC67C22806877100E6EF56 /* AppDelegate.swift */,
 				6AFC67C42806877100E6EF56 /* SceneDelegate.swift */,
 				6AFC67C82806877100E6EF56 /* Main.storyboard */,
@@ -420,17 +431,6 @@
 				6A0393D528165A8E0036999A /* Fonts */,
 			);
 			path = DailyTwoDo;
-			sourceTree = "<group>";
-		};
-		6AFC67D8280698A700E6EF56 /* DayWorksView */ = {
-			isa = PBXGroup;
-			children = (
-				6AFC67C62806877100E6EF56 /* DayWorksViewController.swift */,
-				6AFC67D62806972D00E6EF56 /* DayWorksTableViewCell.swift */,
-				6A0393E7281668850036999A /* StatusImageManager.swift */,
-				6AD8C7AD2818DC9800675990 /* StatusAlertController.swift */,
-			);
-			path = DayWorksView;
 			sourceTree = "<group>";
 		};
 		FDFB800D939577A66581ED5A /* Frameworks */ = {
@@ -606,14 +606,14 @@
 			files = (
 				6A0393A928165A7A0036999A /* AppDelegate.swift in Sources */,
 				6A0393AB28165A7A0036999A /* SceneDelegate.swift in Sources */,
+				6AD8C8A0281BA42000675990 /* DayWorksTableViewCell.swift in Sources */,
+				6AD8C8A3281BA42000675990 /* DayWorks.xcdatamodeld in Sources */,
+				6AD8C89F281BA42000675990 /* StatusImageManager.swift in Sources */,
 				6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */,
-				6A0393EC2817EFBF0036999A /* Status.swift in Sources */,
-				6AFC67C72806877100E6EF56 /* DayWorksViewController.swift in Sources */,
-				6AFC67D72806972D00E6EF56 /* DayWorksTableViewCell.swift in Sources */,
-				6AD8C7AF2818DC9800675990 /* StatusAlertController.swift in Sources */,
-				6A0393AF28165A7A0036999A /* DayWorks.swift in Sources */,
-				6A0393E8281668850036999A /* StatusImageManager.swift in Sources */,
-				6A0393B028165A7A0036999A /* DayWorks.xcdatamodeld in Sources */,
+				6AD8C8A4281BA42000675990 /* Status.swift in Sources */,
+				6AD8C89E281BA42000675990 /* DayWorksViewController.swift in Sources */,
+				6AD8C8A2281BA42000675990 /* DayWorks.swift in Sources */,
+				6AD8C8A1281BA42000675990 /* StatusAlertController.swift in Sources */,
 				6A0393BB28165A7A0036999A /* Pods-DailyTwoDo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -864,12 +864,12 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		6ADC86452807EBAB00F7D3A0 /* DayWorks.xcdatamodeld */ = {
+		6AD8C89B281BA42000675990 /* DayWorks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */,
+				6AD8C89C281BA42000675990 /* WorksCoreData.xcdatamodel */,
 			);
-			currentVersion = 6ADC86462807EBAB00F7D3A0 /* WorksCoreData.xcdatamodel */;
+			currentVersion = 6AD8C89C281BA42000675990 /* WorksCoreData.xcdatamodel */;
 			path = DayWorks.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
