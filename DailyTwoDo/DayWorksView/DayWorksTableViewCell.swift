@@ -104,11 +104,16 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
         else {
             print("할일 생성 실행")
             if let newText = textField.text, newText != "" {
-                DayWorks.shared.newWork(title: newText)
+                if DayWorks.shared.newWork(title: newText) {
+
+                    //테이블 새로고침
+                    superTableView.reloadData()
+                    //마지막 칸으로 커서 이동
+                    moveNextRow(superTableView, From: cellRow)
+                }
             }
-            superTableView.reloadData()
-            //마지막 칸으로 커서 이동.
-            moveNextRow(superTableView, From: cellRow)
+      
+           
             
         }
     }
