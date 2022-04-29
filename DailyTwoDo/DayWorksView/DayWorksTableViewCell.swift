@@ -53,6 +53,18 @@ class DayWorksTableViewCell: UITableViewCell {
    
     }
     
+    //MARK: 다음 칸으로 커서 이동
+    func moveNextRow(_ tableView: UITableView, From indexPath: IndexPath) {
+        var nextIndexPath = indexPath
+        nextIndexPath.row += 1
+        
+        if let nextCell = tableView.cellForRow(at: nextIndexPath) as? DayWorksTableViewCell  {
+            tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
+            nextCell.textField.becomeFirstResponder()
+            
+        }
+
+    }
     
 }
 
@@ -75,19 +87,29 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
                 if DayWorks.shared.editWork(ofOrder: cellRow.row, changeTitle: newText) {
                     print("할일 수정 성공")
                     superTableView.reloadRows(at: [cellRow], with: .none)
+                    //다음 칸으로 커서 이동
+                    moveNextRow(superTableView, From: cellRow)
+                    
                 }
             }  else {
                 print("내용 없음->할일 삭제")
                 if DayWorks.shared.deleteWork(order: cellRow.row) {
                     print("할일 삭제 성공")
                     superTableView.deleteRows(at: [cellRow], with: .none)
+                    //다음 칸으로 커서 이동
+                    moveNextRow(superTableView, From: cellRow)
                 }
             }
         }
         else {
             print("할일 생성 실행")
-            DayWorks.shared.newWork(title: textField.text ?? "")
+            if let newText = textField.text, newText != "" {
+                DayWorks.shared.newWork(title: newText)
+            }
             superTableView.reloadData()
+            //마지막 칸으로 커서 이동.
+            moveNextRow(superTableView, From: cellRow)
+            
         }
     }
     

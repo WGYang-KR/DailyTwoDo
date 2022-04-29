@@ -71,6 +71,8 @@ class DayWorksViewController: UIViewController{
         
     }
     
+    
+    
 }
 
 extension DayWorksViewController: FSCalendarDelegate{
@@ -119,6 +121,7 @@ extension DayWorksViewController: FSCalendarDelegate{
 
 extension DayWorksViewController: UITableViewDelegate {
     
+    //MARK: - 셀 Swipe 삭제 기능 구현
     func tableView(_ tableView: UITableView,
                     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -136,7 +139,7 @@ extension DayWorksViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    //테이블 스크롤 시 달력 크기 조정
+    //MARK: - 테이블 스크롤 시 달력 크기 변경
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scrollViewDidScroll")
         let yVelocity = scrollView.panGestureRecognizer.velocity(in: scrollView).y
@@ -159,6 +162,17 @@ extension DayWorksViewController: UITableViewDelegate {
                 }
         }
     }
+    
+    //MARK: - 셀 선택 시 텍스트필드 활성화
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? DayWorksTableViewCell else {
+            return
+        }
+        print("didSelectRowAt called")
+        cell.textField.becomeFirstResponder()
+    }
+
+   
     
 }
 
