@@ -158,10 +158,9 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if let cellRow = self.superTableView.indexPath(for: self) {
-            self.superTableView.scrollToRow(at: cellRow, at: .top, animated: true)
+        if let thisCellRow = self.superTableView.indexPath(for: self), self.superTableView.indexPathForSelectedRow != thisCellRow {
+            self.superTableView.selectRow(at: thisCellRow, animated: false, scrollPosition: .top)
         }
-    
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

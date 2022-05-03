@@ -65,6 +65,8 @@ class DayWorksViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
               
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
 
     }
     
@@ -73,6 +75,15 @@ class DayWorksViewController: UIViewController{
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 let keyboardHeight = keyboardRectangle.height
             self.tableViewBottomMargin.constant = keyboardHeight
+            
+           
+        }
+    }
+    @objc func keyboardDidShow(_ sender: Notification) {
+        //현재 firstResponder가 속한 행으로 초점 이동.
+        if let selectedRow = self.tableView.indexPathForSelectedRow
+        {
+            self.tableView.scrollToRow(at: selectedRow, at: .top, animated: true)
         }
     }
     
