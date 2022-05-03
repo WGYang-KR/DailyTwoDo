@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,20 +89,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l00-dF-DHx">
-                                                    <rect key="frame" x="384" y="15.5" width="15" height="15"/>
+                                                    <rect key="frame" x="359" y="13" width="50" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="SgV-hm-q9g"/>
-                                                        <constraint firstAttribute="width" constant="15" id="oLi-A7-mhw"/>
+                                                        <constraint firstAttribute="height" constant="20" id="SgV-hm-q9g"/>
+                                                        <constraint firstAttribute="width" constant="50" id="oLi-A7-mhw"/>
                                                     </constraints>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=""/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="">
+                                                        <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="touchUpInsideRightButton:" destination="44z-gt-78I" eventType="touchUpInside" id="kcW-i4-ACd"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="할일을 입력하세요." textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-Vl-6CP">
-                                                    <rect key="frame" x="15" y="15" width="359" height="15.5"/>
+                                                    <rect key="frame" x="15" y="15" width="329" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -114,8 +117,8 @@
                                                 <constraint firstAttribute="bottom" secondItem="gXk-Vl-6CP" secondAttribute="bottom" constant="15" id="BSy-YO-Z4v"/>
                                                 <constraint firstItem="gXk-Vl-6CP" firstAttribute="leading" secondItem="BWn-Wu-aYN" secondAttribute="leading" constant="15" id="CDC-Pq-Ryy"/>
                                                 <constraint firstItem="gXk-Vl-6CP" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="15" id="eDK-aS-TXj"/>
-                                                <constraint firstItem="l00-dF-DHx" firstAttribute="leading" secondItem="gXk-Vl-6CP" secondAttribute="trailing" constant="10" id="ex6-e9-rIy"/>
-                                                <constraint firstAttribute="trailing" secondItem="l00-dF-DHx" secondAttribute="trailing" constant="15" id="sf4-oh-SQh"/>
+                                                <constraint firstItem="l00-dF-DHx" firstAttribute="leading" secondItem="gXk-Vl-6CP" secondAttribute="trailing" constant="15" id="ex6-e9-rIy"/>
+                                                <constraint firstAttribute="trailing" secondItem="l00-dF-DHx" secondAttribute="trailing" constant="5" id="sf4-oh-SQh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
