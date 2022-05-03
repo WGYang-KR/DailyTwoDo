@@ -159,6 +159,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
+        
         guard let firstResponder = superTableView.window?.firstResponder else { return true }
         
         //현재 firstResponder가 textField이면 입력해제
@@ -171,6 +172,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
             return true
         }
 
+        return true
     }
 }
 

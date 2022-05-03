@@ -22,7 +22,7 @@ class DayWorksViewController: UIViewController{
         // Do any additional setup after loading the view.
         
         //MARK: - 화면 클릭하면 키보드 내리기
-        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(self.resignFirstResponder))
         tapGesture.cancelsTouchesInView = false //인식하고, view로도 보냄
         view.addGestureRecognizer(tapGesture)
         
@@ -164,9 +164,26 @@ extension DayWorksViewController: UITableViewDelegate {
         }
     }
     //MARK: - 셀 선택 시 텍스트필드 활성화
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("selectedRow: \(tableView.indexPathForSelectedRow)")
+        if let curSelectedIndex = tableView.indexPathForSelectedRow, indexPath == curSelectedIndex {
+            print("같은 행 클릭")
+            return indexPath
+        } else {
+            print("다른행 클릭")
+            //모든 행 선택 해제.
+            //텍스트필드 비활성
+            return indexPath
+        }
     }
+    
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("willDeselect")
+        return indexPath
+    }
+
+ 
 }
 
 extension DayWorksViewController: UITableViewDataSource {
