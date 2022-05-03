@@ -164,23 +164,7 @@ extension DayWorksViewController: UITableViewDelegate {
         }
     }
     //MARK: - 셀 선택 시 텍스트필드 활성화
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        print("didSelectRowAt called")
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? DayWorksTableViewCell else {
-            return indexPath
-        }
-        print(tableView.window?.firstResponder)
-        //현재 텍스트필드가 활성화 상태면 비활성화
-        if let currentTextField = tableView.window?.firstResponder as? UITextField {
-            print("현재 텍스트필드 활성화상태")
-            currentTextField.resignFirstResponder()
-            return indexPath
-            
-        } else {
-            cell.textField.becomeFirstResponder()
-            return indexPath
-        }
-       
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
     }
 }

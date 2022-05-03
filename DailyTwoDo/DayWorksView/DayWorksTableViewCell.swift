@@ -53,7 +53,10 @@ class DayWorksTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        if !self.textField.isEditing, selected == true {
+            self.textField.becomeFirstResponder()
+        }
+       
     }
 
     
