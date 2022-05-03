@@ -157,6 +157,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         if let cellRow = self.superTableView.indexPath(for: self) {
             self.superTableView.scrollToRow(at: cellRow, at: .top, animated: true)
         }

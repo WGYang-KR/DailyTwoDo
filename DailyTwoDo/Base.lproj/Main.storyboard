@@ -157,6 +157,7 @@
                         <outlet property="calendarHeight" destination="mfQ-5e-Qdg" id="12k-3w-v0E"/>
                         <outlet property="customNavigationItem" destination="eXJ-Fg-lzN" id="KY6-2L-OEp"/>
                         <outlet property="tableView" destination="eJS-Vz-ogT" id="nZp-Ax-5CG"/>
+                        <outlet property="tableViewBottomMargin" destination="ibn-Ao-qkp" id="tEd-Db-5ta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

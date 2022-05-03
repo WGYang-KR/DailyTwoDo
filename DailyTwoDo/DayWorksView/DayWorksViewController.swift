@@ -15,6 +15,7 @@ class DayWorksViewController: UIViewController{
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomMargin: NSLayoutConstraint!
     let cellIdentifier: String = "DayWorksCell"
    
     override func viewDidLoad() {
@@ -59,6 +60,24 @@ class DayWorksViewController: UIViewController{
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+        
+        //MARK: 키보드 올라올 때 테이블뷰 크기 조정
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+              
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+            self.tableViewBottomMargin.constant = keyboardHeight
+        }
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.tableViewBottomMargin.constant = 0 // Move view to original position
     }
     
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
@@ -166,7 +185,9 @@ extension DayWorksViewController: UITableViewDelegate {
     //MARK: - 셀 선택 시 텍스트필드 활성화
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        print("selectedRow: \(tableView.indexPathForSelectedRow)")
+        
+        //달력 줄이기
+        calendar.setScope(.week, animated: true)
         if let curSelectedIndex = tableView.indexPathForSelectedRow, indexPath == curSelectedIndex {
             print("같은 행 클릭")
             return indexPath
