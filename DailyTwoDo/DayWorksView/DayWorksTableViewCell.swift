@@ -13,10 +13,18 @@ class DayWorksTableViewCell: UITableViewCell {
     @IBOutlet weak var rightButton: UIButton! //할일 상태 표시 및 변경 호출
     var superTableView: UITableView! //셀이 속한 테이블뷰
     var status: Status!
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.textField.delegate = self
+        
+     
+       
+        
+    }
+    
+    @objc func doneBtnFromKeyBoardClicked(_ sender : Any ) {
+        textField.resignFirstResponder()
     }
     
     required init?(coder: NSCoder) {
@@ -25,7 +33,21 @@ class DayWorksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIButton.init(type: .custom)
+        doneButton.setTitle("완료", for: .normal)
+        doneButton.setTitleColor(.gray, for: .normal)
+        doneButton.backgroundColor = .lightGray
+        doneButton.layer.cornerRadius = 10
+        doneButton.addTarget(self, action: #selector(doneBtnFromKeyBoardClicked(_:)), for: .touchUpInside)
+        doneButton.frame = CGRect.init(x: 0, y: 0, width: 50, height: 30)
+        let barDoneButton = UIBarButtonItem.init(customView: doneButton)
+        toolBar.items = [barDoneButton]
+        print("cell init실행")
+        textField.inputAccessoryView = toolBar
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -69,6 +91,7 @@ class DayWorksTableViewCell: UITableViewCell {
 }
 
 extension DayWorksTableViewCell: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         
         guard let cellRow = self.superTableView.indexPath(for: self) else {
@@ -88,7 +111,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
                     print("할일 수정 성공")
                     superTableView.reloadRows(at: [cellRow], with: .none)
                     //다음 칸으로 커서 이동
-                    moveNextRow(superTableView, From: cellRow)
+                    //moveNextRow(superTableView, From: cellRow)
                     
                 }
             }  else {
@@ -97,7 +120,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
                     print("할일 삭제 성공")
                     superTableView.deleteRows(at: [cellRow], with: .none)
                     //다음 칸으로 커서 이동
-                    moveNextRow(superTableView, From: cellRow)
+                    //moveNextRow(superTableView, From: cellRow)
                 }
             }
         }
@@ -109,7 +132,7 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
                     //테이블 새로고침
                     superTableView.reloadData()
                     //마지막 칸으로 커서 이동
-                    moveNextRow(superTableView, From: cellRow)
+                    //moveNextRow(superTableView, From: cellRow)
                 }
             }
       
@@ -120,9 +143,32 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("textFieldShouldReturn")
+        guard let cellRow = self.superTableView.indexPath(for: self) else {
+            print("셀 위치 찾기 실패")
+            return false
+        }
         textField.resignFirstResponder()
-        return true
+        moveNextRow(superTableView, From: cellRow)
+        return false
         
     }
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        guard let firstResponder = superTableView.window?.firstResponder else { return true }
+        
+        //현재 firstResponder가 textField이면 입력해제
+        if let currentTextField = firstResponder as? UITextField {
+            print("firstResponder가 텍스트필드")
+            currentTextField.resignFirstResponder()
+            return false
+        } else {
+            print("firstResponder가 텍스트필드 아님")
+            return true
+        }
+
+    }
 }
+
 

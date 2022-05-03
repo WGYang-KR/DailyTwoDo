@@ -25,6 +25,7 @@ class DayWorksViewController: UIViewController{
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
         tapGesture.cancelsTouchesInView = false //인식하고, view로도 보냄
         view.addGestureRecognizer(tapGesture)
+        
 
         
         //MARK: - calendar 초기 세팅
@@ -162,18 +163,26 @@ extension DayWorksViewController: UITableViewDelegate {
                 }
         }
     }
-    
     //MARK: - 셀 선택 시 텍스트필드 활성화
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? DayWorksTableViewCell else {
-            return
-        }
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         print("didSelectRowAt called")
-        cell.textField.becomeFirstResponder()
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? DayWorksTableViewCell else {
+            return indexPath
+        }
+        print(tableView.window?.firstResponder)
+        //현재 텍스트필드가 활성화 상태면 비활성화
+        if let currentTextField = tableView.window?.firstResponder as? UITextField {
+            print("현재 텍스트필드 활성화상태")
+            currentTextField.resignFirstResponder()
+            return indexPath
+            
+        } else {
+            cell.textField.becomeFirstResponder()
+            return indexPath
+        }
+       
+       
     }
-
-   
-    
 }
 
 extension DayWorksViewController: UITableViewDataSource {
