@@ -16,7 +16,7 @@ class DayWorksTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.textField.delegate = self
+        
         
      
        
@@ -33,7 +33,7 @@ class DayWorksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.textField.delegate = self
         // Initialization code
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -156,6 +156,12 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let cellRow = self.superTableView.indexPath(for: self) {
+            self.superTableView.scrollToRow(at: cellRow, at: .top, animated: true)
+        }
+    
+    }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
