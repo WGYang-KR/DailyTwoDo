@@ -21,6 +21,9 @@ class DayWorksViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //self.tableView.dragInteractionEnabled = true
+        self.tableView.dragDelegate = self
+        self.tableView.dropDelegate = self
         
         //MARK: - 화면 클릭하면 키보드 내리기
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(self.resignFirstResponder))
@@ -193,8 +196,8 @@ extension DayWorksViewController: UITableViewDelegate {
                 }
         }
     }
-    //MARK: - 셀 선택 시 텍스트필드 활성화
     
+    //MARK: - 셀 선택 시 텍스트필드 활성화
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         //달력 줄이기
@@ -215,7 +218,6 @@ extension DayWorksViewController: UITableViewDelegate {
         return indexPath
     }
 
- 
 }
 
 extension DayWorksViewController: UITableViewDataSource {
@@ -248,5 +250,37 @@ extension DayWorksViewController: UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+            print("\(sourceIndexPath.row) -> \(destinationIndexPath.row)")
+    
+        if DayWorks.shared.moveWork(moveWorkAt: sourceIndexPath.row, to: destinationIndexPath.row) {
+            print("셀 이동 DB반영 완료")
+        }
+    }
+ 
 }
 
+extension DayWorksViewController: UITableViewDragDelegate {
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+
+}
+
+extension DayWorksViewController: UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) { }
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        //if inner drop, do insert.
+        if session.localDragSession != nil {
+               return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        //if a drop from out of app, cancel.
+        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+       
+    }
+    
+}
