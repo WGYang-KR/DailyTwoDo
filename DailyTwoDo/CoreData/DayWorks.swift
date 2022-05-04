@@ -246,6 +246,8 @@ class DayWorks {
         }
     }
     
+
+    
     private func reorderWorks(ofDay: DayMo) -> Bool {
         print("reorderWorks()호출")
         let sortDescription: NSSortDescriptor =  NSSortDescriptor(key: "order", ascending: true)
@@ -264,5 +266,41 @@ class DayWorks {
             return false
         }
         
+    }
+    
+    func moveWork(moveWorkAt sourceIndex: Int, to destinationIndex: Int) -> Bool {
+        
+        
+        let moveCell = self.selectedWorks[sourceIndex]
+        self.selectedWorks.remove(at: sourceIndex)
+        self.selectedWorks.insert(moveCell, at: destinationIndex )
+        
+        for (index, item) in self.selectedWorks.enumerated() {
+            item.order = Int16(index)
+        }
+        
+        /*
+        let day = selectedDay
+        
+        guard let sourceWork: WorkMo = day.works?.filter({($0 as! WorkMo).order == Int16(sourceIndex)}).first as? WorkMo else {
+            print("moveWork: 해당 하는 source work 없음")
+            return false
+        }
+        guard let destinationWork: WorkMo = day.works?.filter({($0 as! WorkMo).order == Int16(destinationIndex)}).first as? WorkMo  else {
+            print("moveWork: 해당 하는 destination work 없음")
+            return false
+        }
+        
+        sourceWork.order = Int16(destinationIndex)
+        destinationWork.order = Int16(sourceIndex)
+        */
+        
+        do { try context.save()
+            return true
+        }
+        catch {
+            context.rollback()
+            return false
+        }
     }
 }
