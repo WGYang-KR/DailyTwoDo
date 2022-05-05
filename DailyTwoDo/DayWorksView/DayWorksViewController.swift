@@ -149,6 +149,11 @@ extension DayWorksViewController: FSCalendarDelegate{
             }
         
     }
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월"
+        customNavigationItem.title = formatter.string(from: calendar.currentPage) 
+    }
     
 }
 
