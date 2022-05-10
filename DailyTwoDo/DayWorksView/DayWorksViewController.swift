@@ -105,6 +105,16 @@ class DayWorksViewController: UIViewController{
         
     }
     
+    @IBAction func touchUpInsideAddButton(_ sender: UIButton) {
+        
+        //InputView를 띄운다.
+        let inputViewController = InputViewController()
+        inputViewController.modalPresentationStyle = .overFullScreen
+        inputViewController.modalTransitionStyle = .crossDissolve
+        self.present(inputViewController, animated: true)
+        
+    }
+    
     
     
 }

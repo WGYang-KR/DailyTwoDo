@@ -20,7 +20,6 @@ class DayWorks {
     
     private let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     private lazy var context = appDelegate.persistentContainer.viewContext
-    private let modelName: String = "WorksCoreData"
    
     lazy var days: [DayMo] = {
         print("days 처음 호출")
