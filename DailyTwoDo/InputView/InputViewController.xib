@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputViewController" customModule="DailyTwoDo" customModuleProvider="target">
+            <connections>
+                <outlet property="inputBoxBottomMargin" destination="vYk-Kh-CQN" id="Xfu-CH-keh"/>
+                <outlet property="textField" destination="veR-5r-4kq" id="qRJ-JO-EjY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEE-NR-RNy" userLabel="InputBoxView">
+                    <rect key="frame" x="0.0" y="808" width="414" height="54"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-ge-A8u">
+                            <rect key="frame" x="357.5" y="10" width="46.5" height="34"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="">
+                                <imageReference key="image" image="paperplane" catalog="system" symbolScale="large"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="touchUpInsideCompleteButton:" destination="-1" eventType="touchUpInside" id="o8B-cO-D8z"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veR-5r-4kq">
+                            <rect key="frame" x="10" y="10" width="337.5" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" name="PastelBlue01"/>
+                    <constraints>
+                        <constraint firstItem="veR-5r-4kq" firstAttribute="leading" secondItem="OEE-NR-RNy" secondAttribute="leading" constant="10" id="975-hL-hF4"/>
+                        <constraint firstAttribute="trailing" secondItem="vzM-ge-A8u" secondAttribute="trailing" constant="10" id="AfH-P3-G6L"/>
+                        <constraint firstItem="veR-5r-4kq" firstAttribute="top" secondItem="OEE-NR-RNy" secondAttribute="top" constant="10" id="Drd-0i-v87"/>
+                        <constraint firstAttribute="bottom" secondItem="veR-5r-4kq" secondAttribute="bottom" constant="10" id="b3N-VP-2sE"/>
+                        <constraint firstItem="vzM-ge-A8u" firstAttribute="top" secondItem="OEE-NR-RNy" secondAttribute="top" constant="10" id="b9w-Gd-txF"/>
+                        <constraint firstAttribute="bottom" secondItem="vzM-ge-A8u" secondAttribute="bottom" constant="10" id="cBP-vs-8m6"/>
+                        <constraint firstItem="vzM-ge-A8u" firstAttribute="leading" secondItem="veR-5r-4kq" secondAttribute="trailing" constant="10" id="fH7-vB-soJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OEE-NR-RNy" secondAttribute="trailing" id="fr9-p1-QS3"/>
+                <constraint firstItem="OEE-NR-RNy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n8Z-0q-067"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OEE-NR-RNy" secondAttribute="bottom" id="vYk-Kh-CQN"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="51.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
+        <namedColor name="PastelBlue01">
+            <color red="0.88200002908706665" green="0.89800000190734863" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

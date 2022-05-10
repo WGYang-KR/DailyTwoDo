@@ -24,6 +24,8 @@
 		6A0393E028165BAC0036999A /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6A0393DC28165BAC0036999A /* NanumGothicLight.otf */; };
 		6A0393E628165F6D0036999A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0393E528165F6D0036999A /* UIFontExtension.swift */; };
 		6A05A6942820ED280002EA57 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05A6932820ED280002EA57 /* UIViewExtension.swift */; };
+		6A194563282A7A7700FF3572 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A194561282A7A7700FF3572 /* InputViewController.swift */; };
+		6A194564282A7A7700FF3572 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A194562282A7A7700FF3572 /* InputViewController.xib */; };
 		6AD8C89E281BA42000675990 /* DayWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C895281BA42000675990 /* DayWorksViewController.swift */; };
 		6AD8C89F281BA42000675990 /* StatusImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C896281BA42000675990 /* StatusImageManager.swift */; };
 		6AD8C8A0281BA42000675990 /* DayWorksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8C897281BA42000675990 /* DayWorksTableViewCell.swift */; };
@@ -68,6 +70,8 @@
 		6A0393DC28165BAC0036999A /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
 		6A0393E528165F6D0036999A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		6A05A6932820ED280002EA57 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		6A194561282A7A7700FF3572 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		6A194562282A7A7700FF3572 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		6AD8C895281BA42000675990 /* DayWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksViewController.swift; sourceTree = "<group>"; };
 		6AD8C896281BA42000675990 /* StatusImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusImageManager.swift; sourceTree = "<group>"; };
 		6AD8C897281BA42000675990 /* DayWorksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayWorksTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +173,22 @@
 			path = NanumFont_OTF_GOTHIC;
 			sourceTree = "<group>";
 		};
+		6A194560282A79BA00FF3572 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				6A194561282A7A7700FF3572 /* InputViewController.swift */,
+				6A194562282A7A7700FF3572 /* InputViewController.xib */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		6AA75446282254C100084D2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6AD8C894281BA42000675990 /* DayWorksView */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +231,8 @@
 		6AFC67C12806877100E6EF56 /* DailyTwoDo */ = {
 			isa = PBXGroup;
 			children = (
+				6A194560282A79BA00FF3572 /* InputView */,
+				6AA75446282254C100084D2C /* Model */,
 				6AD8C899281BA42000675990 /* CoreData */,
 				6AD8C894281BA42000675990 /* DayWorksView */,
 				6AFC67C22806877100E6EF56 /* AppDelegate.swift */,
@@ -296,6 +318,7 @@
 				6AFC67CF2806877600E6EF56 /* LaunchScreen.storyboard in Resources */,
 				6AFC67CC2806877600E6EF56 /* Assets.xcassets in Resources */,
 				6A0393DF28165BAC0036999A /* NanumGothicExtraBold.otf in Resources */,
+				6A194564282A7A7700FF3572 /* InputViewController.xib in Resources */,
 				6A0393BC28165A7A0036999A /* Pods-DailyTwoDo-acknowledgements.plist in Resources */,
 				6A0393B828165A7A0036999A /* Pods-DailyTwoDo-Info.plist in Resources */,
 				6A0393B228165A7A0036999A /* Pods-DailyTwoDo-frameworks.sh in Resources */,
@@ -362,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AD8C8A9281BA70C00675990 /* AppDelegate.swift in Sources */,
+				6A194563282A7A7700FF3572 /* InputViewController.swift in Sources */,
 				6AD8C8AA281BA70C00675990 /* SceneDelegate.swift in Sources */,
 				6AD8C8A0281BA42000675990 /* DayWorksTableViewCell.swift in Sources */,
 				6AD8C8A3281BA42000675990 /* DayWorks.xcdatamodeld in Sources */,
