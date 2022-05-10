@@ -132,12 +132,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="rWX-jO-J93"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e72-L7-gIL">
+                                <rect key="frame" x="354" y="802" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="KY8-fc-4Ls"/>
+                                    <constraint firstAttribute="height" constant="50" id="LIN-fK-Ph6"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="circlePlus48pt" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpInsideAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TxX-wx-1dC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e72-L7-gIL" secondAttribute="trailing" constant="10" id="5Yu-C9-wYA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJS-Vz-ogT" secondAttribute="trailing" id="6mR-hc-OxO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nIO-wL-myI" secondAttribute="trailing" id="7Sb-M6-X0b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e72-L7-gIL" secondAttribute="bottom" constant="10" id="93U-T4-1Yt"/>
                             <constraint firstItem="n7b-BR-0hU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CVK-b0-WSy"/>
                             <constraint firstItem="8zt-Dc-7AR" firstAttribute="top" secondItem="nIO-wL-myI" secondAttribute="bottom" id="Cmx-uM-I1W"/>
                             <constraint firstItem="n7b-BR-0hU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EFV-Aa-eVU"/>
@@ -167,6 +185,7 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="circlePlus48pt" width="48" height="48"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
