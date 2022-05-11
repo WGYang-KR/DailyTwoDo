@@ -15,8 +15,25 @@ class DayWorksViewController: UIViewController{
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewBottomMargin: NSLayoutConstraint!
+    @IBOutlet weak var middleView: UIView! //캘린더,테이블 슈퍼뷰
+    
     let cellIdentifier: String = "DayWorksCell"
+    
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월"
+        return formatter
+    }()
+    
+    fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
+        [unowned self] in
+        let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
+        panGesture.delegate = self
+        panGesture.minimumNumberOfTouches = 1
+        panGesture.maximumNumberOfTouches = 2
+        return panGesture
+    }()
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,49 +42,25 @@ class DayWorksViewController: UIViewController{
         self.tableView.dragDelegate = self
         self.tableView.dropDelegate = self
         
-        //MARK: Calendar Appearance
-        // 한달 단위(기본값)
-        calendar.scope = .month
-        // 일주일 단위
-        calendar.scope = .week
-        calendar.select(DayWorks.shared.selectedDate) //오늘 날짜 선택
+        //MARK: Calendar 초기 모드, 날짜
+        self.calendar.scope = .week //week모드로 시작
+        self.calendar.select(DayWorks.shared.selectedDate) //오늘 날짜 선택
       
-        calendar.appearance.caseOptions =  FSCalendarCaseOptions.weekdayUsesSingleUpperCase
-        calendar.locale = Locale(identifier:"ko_KR") //Locale.current.identifier
-        print(calendar.locale)
-        // 헤더 폰트 설정
-        calendar.appearance.headerTitleFont = UIFont.nanum(size: 10, family: .Regular)
-        // Weekday 폰트 설정
-        calendar.appearance.weekdayFont = UIFont.nanum(size: 10, family: .Regular)
-        // 각각의 일(날짜) 폰트 설정 
-        calendar.appearance.titleFont = UIFont.nanum(size: 12, family: .Regular)
+        //MARK: Calendar 디자인
+        self.calendar.locale = Locale(identifier:"ko_KR")
+        self.calendar.appearance.caseOptions =  FSCalendarCaseOptions.weekdayUsesSingleUpperCase
+        self.calendar.appearance.headerTitleFont = UIFont.nanum(size: 10, family: .Regular)
+        self.calendar.appearance.weekdayFont = UIFont.nanum(size: 10, family: .Regular)
+        self.calendar.appearance.titleFont = UIFont.nanum(size: 12, family: .Regular)
         
-        //MARK: NavigationItem
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월"
-        customNavigationItem.title = dateFormatter.string(from: DayWorks.shared.selectedDate)
         
-        //MARK: Add swipeGestureRecognizer for resizing calendar
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
-        swipeUp.direction = .up
-        self.view.addGestureRecognizer(swipeUp)
+        //MARK: NavigatinBar 연월표시
+        customNavigationItem.title = self.dateFormatter.string(from: DayWorks.shared.selectedDate)
         
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
-        swipeDown.direction = .down
-        self.view.addGestureRecognizer(swipeDown)
-        
+        //MARK: PanGestureRecognizer: Control Calendar Scope
+        self.view.addGestureRecognizer(self.scopeGesture) //전체뷰
+        self.tableView.panGestureRecognizer.require(toFail:  self.scopeGesture) //테이블뷰
 
-    }
-    
-    @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
-
-        if swipe.direction == .up {
-            calendar.setScope(.week, animated: true)
-        }
-        else if swipe.direction == .down {
-            calendar.setScope(.month, animated: true)
-        }
-        
     }
     
     @IBAction func touchUpInsideAddButton(_ sender: UIButton) {
@@ -82,6 +75,21 @@ class DayWorksViewController: UIViewController{
     }
 }
 
+extension DayWorksViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let shouldBegin = self.tableView.contentOffset.y <= -self.tableView.contentInset.top
+        if shouldBegin {
+            let velocity = self.scopeGesture.velocity(in: self.view)
+            switch self.calendar.scope {
+            case .month:
+                return velocity.y < 0
+            case .week:
+                return velocity.y > 0
+            }
+        }
+        return shouldBegin
+    }
+}
 //MARK: - FSCalendar Delegate
 extension DayWorksViewController: FSCalendarDelegate{
     
@@ -119,10 +127,11 @@ extension DayWorksViewController: FSCalendarDelegate{
     //MARK: Resize calendar view
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
            
-            calendarHeight.constant = bounds.height
-            UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-            }
+        self.calendarHeight.constant = bounds.height
+        self.view.layoutIfNeeded()
+//            UIView.animate(withDuration: 0.2) {
+//                    self.view.layoutIfNeeded()
+//            }
         
     }
     //MARK: Update the Date title
@@ -157,32 +166,59 @@ extension DayWorksViewController: UITableViewDelegate {
     
     //MARK: Scroll event: Resize calendar
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll")
-        let yVelocity = scrollView.panGestureRecognizer.velocity(in: scrollView).y
-        
-        //위로 스크롤
-        if yVelocity < 0 {
-            //위로 스크롤
-            //달력 .week로
-            calendar.setScope(.week, animated: true)
-            
-        }
-        else if yVelocity > 0 {
-            //아래로 스크롤
-                //테이블 최상단이면 달력 .month로
-                let contentYoffset = scrollView.contentOffset.y
-                print("contentYoffset: \(contentYoffset)")
-                if contentYoffset <= 0 {
-                
-                    calendar.setScope(.month, animated: true)
-                }
-        }
+//        print("scrollViewDidScroll")
+//        let yVelocity = scrollView.panGestureRecognizer.velocity(in: scrollView).y
+//        let yTranslation = scrollView.panGestureRecognizer.translation(in: scrollView).y
+//
+//        //위로 스크롤
+//        if yVelocity < 0 {
+//
+//            let currentCalendarHeight = calendar.bounds.height
+//            let willCalendarHeight = currentCalendarHeight + yTranslation
+//            //달력 .week로
+//            if willCalendarHeight > 100 {
+//                calendar.sizeThatFits(CGSize, scope: .)
+//                calendar.bounds.height = willCalendarHeight
+//            }
+//
+//
+//        }
+//        else if yVelocity > 0 {
+//            //아래로 스크롤
+//                //테이블 최상단이면 달력 .month로
+//                let contentYoffset = scrollView.contentOffset.y
+//                print("contentYoffset: \(contentYoffset)")
+//                if contentYoffset <= 0 {
+//
+//                    calendar.setScope(.month, animated: true)
+//                }
+//        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        //스크롤 끝나면 캘린더 모드 결정.
+//        let currentCalendarHeight = calendarHeight.constant
+//        let currentCalendarScope = calendar.scope
+//        if currentCalendarScope == .month {
+//            if currentCalendarHeight < 100 {
+//                calendar.setScope(.week, animated: true)
+//            } else {
+//                calendar.setScope(.month, animated: true)
+//            }
+//        } else if currentCalendarScope == .week {
+//            if currentCalendarHeight > 200 {
+//                calendar.setScope(.month, animated: true)
+//            } else {
+//                calendar.setScope(.week, animated: true)
+//            }
+//        }
+      
     }
     
     //MARK: Select event: Resize calendar
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         //달력 줄이기
-        calendar.setScope(.week, animated: true)
+//        calendar.setScope(.week, animated: true)
         return indexPath
     }
 
