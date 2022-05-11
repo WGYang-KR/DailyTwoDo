@@ -111,6 +111,7 @@ class DayWorksViewController: UIViewController{
         let inputViewController = InputViewController()
         inputViewController.modalPresentationStyle = .overFullScreen
         inputViewController.modalTransitionStyle = .crossDissolve
+        inputViewController.superTableView = self.tableView
         self.present(inputViewController, animated: true)
         
     }
@@ -299,3 +300,4 @@ extension DayWorksViewController: UITableViewDropDelegate {
     }
     
 }
+

@@ -11,10 +11,11 @@ class InputViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var inputBoxBottomMargin: NSLayoutConstraint!
-    
+    @IBOutlet weak var superTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.textField.delegate = self
         // Do any additional setup after loading the view.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss(_:)))
         view.addGestureRecognizer(tapGesture)
@@ -26,6 +27,8 @@ class InputViewController: UIViewController {
         
         self.textField.becomeFirstResponder()
     }
+    
+    
     
     @objc func dismiss(_ sender: Any?) {
         self.dismiss(animated: true)
@@ -51,14 +54,23 @@ class InputViewController: UIViewController {
         self.inputBoxBottomMargin.constant = 0
         
     }
-    
-    
-    //MARK: - 완료버튼 클릭
-    @IBAction func touchUpInsideCompleteButton(_ sender: UIButton) {
+        
+    //MARK: - 완료버튼 클릭: 할일 등록
+    @IBAction func touchUpInsideCompleteButton(_ sender: UIButton)
+    {
+        
+       
+        if let title = self.textField.text, title != "" {
+            //데이터 등록
+            DayWorks.shared.newWork(title: title)
+            
+            //테이블뷰 업데이트
+            superTableView.reloadData()
+        }
+        
+        //창 종료
         self.dismiss(animated: true)
     }
-
-
 
     /*
     // MARK: - Navigation
@@ -75,7 +87,19 @@ class InputViewController: UIViewController {
 extension InputViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+         if let title = self.textField.text, title != "" {
+             //데이터 등록
+             DayWorks.shared.newWork(title: title)
+             
+             //테이블뷰 업데이트
+             superTableView.reloadData()
+             
+             self.textField.text = ""
+         }
         
         return false
     }
+
 }
+
