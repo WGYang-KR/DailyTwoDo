@@ -82,16 +82,15 @@
                                 <color key="separatorColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="DayWorksCell" id="44z-gt-78I" customClass="DayWorksTableViewCell" customModule="DailyTwoDo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44z-gt-78I" id="BWn-Wu-aYN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l00-dF-DHx">
-                                                    <rect key="frame" x="359" y="13" width="50" height="20"/>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l00-dF-DHx">
+                                                    <rect key="frame" x="359" y="5" width="50" height="31.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="SgV-hm-q9g"/>
                                                         <constraint firstAttribute="width" constant="50" id="oLi-A7-mhw"/>
                                                     </constraints>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,27 +102,27 @@
                                                         <action selector="touchUpInsideRightButton:" destination="44z-gt-78I" eventType="touchUpInside" id="kcW-i4-ACd"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="할일을 입력하세요." textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-Vl-6CP">
-                                                    <rect key="frame" x="15" y="15" width="329" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="44z-gt-78I" id="TEj-du-HYs"/>
-                                                    </connections>
-                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-Lz-AzC">
+                                                    <rect key="frame" x="10" y="10" width="334" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="l00-dF-DHx" firstAttribute="centerY" secondItem="gXk-Vl-6CP" secondAttribute="centerY" id="2ab-h2-fuI"/>
-                                                <constraint firstAttribute="bottom" secondItem="gXk-Vl-6CP" secondAttribute="bottom" constant="15" id="BSy-YO-Z4v"/>
-                                                <constraint firstItem="gXk-Vl-6CP" firstAttribute="leading" secondItem="BWn-Wu-aYN" secondAttribute="leading" constant="15" id="CDC-Pq-Ryy"/>
-                                                <constraint firstItem="gXk-Vl-6CP" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="15" id="eDK-aS-TXj"/>
-                                                <constraint firstItem="l00-dF-DHx" firstAttribute="leading" secondItem="gXk-Vl-6CP" secondAttribute="trailing" constant="15" id="ex6-e9-rIy"/>
+                                                <constraint firstItem="4hN-Lz-AzC" firstAttribute="leading" secondItem="BWn-Wu-aYN" secondAttribute="leading" constant="10" id="1MA-U9-Otj"/>
+                                                <constraint firstItem="l00-dF-DHx" firstAttribute="leading" secondItem="4hN-Lz-AzC" secondAttribute="trailing" constant="15" id="3Br-cb-VFZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="l00-dF-DHx" secondAttribute="bottom" constant="5" id="DwM-ye-Z9g"/>
+                                                <constraint firstItem="l00-dF-DHx" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="5" id="Giv-Tg-GDq"/>
+                                                <constraint firstItem="l00-dF-DHx" firstAttribute="centerY" secondItem="4hN-Lz-AzC" secondAttribute="centerY" id="KrG-Dc-Dd0"/>
+                                                <constraint firstItem="4hN-Lz-AzC" firstAttribute="top" secondItem="BWn-Wu-aYN" secondAttribute="top" constant="10" id="hYq-4f-dk8"/>
                                                 <constraint firstAttribute="trailing" secondItem="l00-dF-DHx" secondAttribute="trailing" constant="5" id="sf4-oh-SQh"/>
+                                                <constraint firstAttribute="bottom" secondItem="4hN-Lz-AzC" secondAttribute="bottom" constant="10" id="ugV-zL-asi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="label" destination="4hN-Lz-AzC" id="t1M-L1-myF"/>
                                             <outlet property="rightButton" destination="l00-dF-DHx" id="01c-S5-LGV"/>
-                                            <outlet property="textField" destination="gXk-Vl-6CP" id="iel-bx-Nlv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

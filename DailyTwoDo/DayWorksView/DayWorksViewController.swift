@@ -25,15 +25,7 @@ class DayWorksViewController: UIViewController{
         self.tableView.dragDelegate = self
         self.tableView.dropDelegate = self
         
-        //MARK: - 화면 클릭하면 키보드 내리기
-        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(self.resignFirstResponder))
-        tapGesture.cancelsTouchesInView = false //인식하고, view로도 보냄
-        view.addGestureRecognizer(tapGesture)
-        
-
-        
-        //MARK: - calendar 초기 세팅
-
+        //MARK: Calendar Appearance
         // 한달 단위(기본값)
         calendar.scope = .month
         // 일주일 단위
@@ -50,12 +42,12 @@ class DayWorksViewController: UIViewController{
         // 각각의 일(날짜) 폰트 설정 
         calendar.appearance.titleFont = UIFont.nanum(size: 12, family: .Regular)
         
-        //MARK: - NavigationItem 초기 세팅
+        //MARK: NavigationItem
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월"
         customNavigationItem.title = dateFormatter.string(from: DayWorks.shared.selectedDate)
         
-        //MARK: 스와이프 시 달력 높이 조정
+        //MARK: Add swipeGestureRecognizer for resizing calendar
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeEvent(_:)))
         swipeUp.direction = .up
         self.view.addGestureRecognizer(swipeUp)
@@ -64,34 +56,7 @@ class DayWorksViewController: UIViewController{
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
         
-        //MARK: 키보드 올라올 때 테이블뷰 크기 조정
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-              
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
 
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-            self.tableViewBottomMargin.constant = keyboardHeight
-            
-           
-        }
-    }
-    @objc func keyboardDidShow(_ sender: Notification) {
-        //현재 firstResponder가 속한 행으로 초점 이동.
-        if let selectedRow = self.tableView.indexPathForSelectedRow
-        {
-            self.tableView.scrollToRow(at: selectedRow, at: .top, animated: true)
-        }
-    }
-    
-    @objc func keyboardWillHide(_ sender: Notification) {
-        self.tableViewBottomMargin.constant = 0 // Move view to original position
     }
     
     @objc func swipeEvent(_ swipe: UISwipeGestureRecognizer) {
@@ -115,11 +80,9 @@ class DayWorksViewController: UIViewController{
         self.present(inputViewController, animated: true)
         
     }
-    
-    
-    
 }
 
+//MARK: - FSCalendar Delegate
 extension DayWorksViewController: FSCalendarDelegate{
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -148,10 +111,12 @@ extension DayWorksViewController: FSCalendarDelegate{
     }
     
     
+    //MARK: Block the deselect event
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
         return false
     }
     
+    //MARK: Resize calendar view
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
            
             calendarHeight.constant = bounds.height
@@ -160,6 +125,7 @@ extension DayWorksViewController: FSCalendarDelegate{
             }
         
     }
+    //MARK: Update the Date title
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 MM월"
@@ -168,10 +134,10 @@ extension DayWorksViewController: FSCalendarDelegate{
     
 }
 
-
+//MARK: - Table Delegate
 extension DayWorksViewController: UITableViewDelegate {
     
-    //MARK: - 셀 Swipe 삭제 기능 구현
+    //MARK: Swipe Cell: Delete cell
     func tableView(_ tableView: UITableView,
                     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -189,7 +155,7 @@ extension DayWorksViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    //MARK: - 테이블 스크롤 시 달력 크기 변경
+    //MARK: Scroll event: Resize calendar
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scrollViewDidScroll")
         let yVelocity = scrollView.panGestureRecognizer.velocity(in: scrollView).y
@@ -213,34 +179,20 @@ extension DayWorksViewController: UITableViewDelegate {
         }
     }
     
-    //MARK: - 셀 선택 시 텍스트필드 활성화
+    //MARK: Select event: Resize calendar
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        
         //달력 줄이기
         calendar.setScope(.week, animated: true)
-        if let curSelectedIndex = tableView.indexPathForSelectedRow, indexPath == curSelectedIndex {
-            print("같은 행 클릭")
-            return indexPath
-        } else {
-            print("다른행 클릭")
-            //모든 행 선택 해제.
-            //텍스트필드 비활성
-            return indexPath
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
-        print("willDeselect")
         return indexPath
     }
 
 }
 
+//MARK: - Table DataSource
 extension DayWorksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DayWorks.shared.selectedWorks.count + 1
-       
+        return DayWorks.shared.selectedWorks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -248,24 +200,18 @@ extension DayWorksViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DayWorksTableViewCell else { return DayWorksTableViewCell() }
   
         cell.superTableView = self.tableView
-        
-        let numWorks = DayWorks.shared.selectedWorks.count
+        cell.label.text = DayWorks.shared.selectedWorks[indexPath.row].title
+        cell.status = DayWorks.shared.selectedWorks[indexPath.row].status
+        cell.rightButton.isHidden = false
+        StatusImageManager.setImageOfButton(cell.rightButton, status: cell.status)
     
-        if indexPath.row < numWorks {
-            //목록cell
-            cell.textField.text = DayWorks.shared.selectedWorks[indexPath.row].title
-            cell.status = DayWorks.shared.selectedWorks[indexPath.row].status
-            cell.rightButton.isHidden = false
-            StatusImageManager.setImageOfButton(cell.rightButton, status: cell.status)
-            
-        } else {
-            //입력cell
-            cell.textField.text = ""
-            cell.status = .inComplete
-            cell.rightButton.isHidden = true
-        }
         return cell
     }
+}
+
+
+//MARK: - Table Drag&Drop
+extension DayWorksViewController {
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
             print("\(sourceIndexPath.row) -> \(destinationIndexPath.row)")
@@ -274,9 +220,7 @@ extension DayWorksViewController: UITableViewDataSource {
             print("셀 이동 DB반영 완료")
         }
     }
- 
 }
-
 extension DayWorksViewController: UITableViewDragDelegate {
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {

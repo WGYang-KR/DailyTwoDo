@@ -9,22 +9,15 @@ import UIKit
 
 class DayWorksTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var textField: UITextField! //할일 내용
-    @IBOutlet weak var rightButton: UIButton! //할일 상태 표시 및 변경 호출
+    @IBOutlet weak var rightButton: UIButton! //할일 상태
+    @IBOutlet weak var label: UILabel!
+    
     var superTableView: UITableView! //셀이 속한 테이블뷰
     var status: Status!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
-     
-       
-        
-    }
-    
-    @objc func doneBtnFromKeyBoardClicked(_ sender : Any ) {
-        textField.resignFirstResponder()
     }
     
     required init?(coder: NSCoder) {
@@ -33,29 +26,12 @@ class DayWorksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.textField.delegate = self
         // Initialization code
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let doneButton = UIButton.init(type: .custom)
-        doneButton.setTitle("완료", for: .normal)
-        doneButton.setTitleColor(.gray, for: .normal)
-        doneButton.backgroundColor = .lightGray
-        doneButton.layer.cornerRadius = 10
-        doneButton.addTarget(self, action: #selector(doneBtnFromKeyBoardClicked(_:)), for: .touchUpInside)
-        doneButton.frame = CGRect.init(x: 0, y: 0, width: 50, height: 30)
-        let barDoneButton = UIBarButtonItem.init(customView: doneButton)
-        toolBar.items = [barDoneButton]
-        print("cell init실행")
-        textField.inputAccessoryView = toolBar
+      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        if !self.textField.isEditing, selected == true {
-            self.textField.becomeFirstResponder()
-        }
        
     }
 
@@ -78,21 +54,10 @@ class DayWorksTableViewCell: UITableViewCell {
    
     }
     
-    //MARK: 다음 칸으로 커서 이동
-    func moveNextRow(_ tableView: UITableView, From indexPath: IndexPath) {
-        var nextIndexPath = indexPath
-        nextIndexPath.row += 1
-        
-        if let nextCell = tableView.cellForRow(at: nextIndexPath) as? DayWorksTableViewCell  {
-            tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
-            nextCell.textField.becomeFirstResponder()
-            
-        }
-
-    }
-    
 }
 
+
+/*
 extension DayWorksTableViewCell: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
@@ -181,5 +146,5 @@ extension DayWorksTableViewCell: UITextFieldDelegate {
         return true
     }
 }
-
+*/
 
