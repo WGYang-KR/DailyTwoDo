@@ -63,7 +63,15 @@ class DayWorksViewController: UIViewController{
 
     }
     
+    //MARK: '+' 버튼 액션
     @IBAction func touchUpInsideAddButton(_ sender: UIButton) {
+        
+        //선택된 날짜로 이동.
+        if let selectedDate = self.calendar.selectedDate {
+            self.calendar.setCurrentPage(selectedDate, animated: true)
+        }
+        //달력 week 모드로.
+        self.calendar.setScope(.week, animated: true)
         
         //InputView를 띄운다.
         let inputViewController = InputViewController()
@@ -126,7 +134,7 @@ extension DayWorksViewController: FSCalendarDelegate{
     
     //MARK: Resize calendar view
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-           
+        
         self.calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded()
 //            UIView.animate(withDuration: 0.2) {
@@ -134,6 +142,7 @@ extension DayWorksViewController: FSCalendarDelegate{
 //            }
         
     }
+
     //MARK: Update the Date title
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         let formatter = DateFormatter()
