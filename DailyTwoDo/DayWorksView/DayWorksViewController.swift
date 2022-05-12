@@ -221,7 +221,6 @@ extension DayWorksViewController: UITableViewDelegate {
 //                calendar.setScope(.week, animated: true)
 //            }
 //        }
-      
     }
     
     //MARK: Select event: Resize calendar
@@ -231,6 +230,14 @@ extension DayWorksViewController: UITableViewDelegate {
         return indexPath
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let workDetailViewController = WorkDetailViewController()
+        workDetailViewController.parentTableView = self.tableView
+        workDetailViewController.order = indexPath.row
+        self.present(workDetailViewController, animated: true)
+        
+    }
 }
 
 //MARK: - Table DataSource

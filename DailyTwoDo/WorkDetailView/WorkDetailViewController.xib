@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkDetailViewController" customModule="DailyTwoDo" customModuleProvider="target">
             <connections>
+                <outlet property="dateLabel" destination="iuv-qj-Pnt" id="9aI-rb-a7C"/>
+                <outlet property="statusButton" destination="kKN-gT-QUl" id="9tR-Oq-kzh"/>
+                <outlet property="titleTextField" destination="4cg-rE-JlN" id="7Z7-Ly-cGM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022-00-00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuv-qj-Pnt" userLabel="Date Label">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuv-qj-Pnt" userLabel="Date Label">
                     <rect key="frame" x="158.5" y="103" width="97" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -33,7 +36,11 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <items>
                         <navigationItem id="WSb-Mo-l8N">
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="gwO-vw-cLn"/>
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="gwO-vw-cLn">
+                                <connections>
+                                    <action selector="touchUpInsideBackButton:" destination="-1" id="Cz6-qj-p4d"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
