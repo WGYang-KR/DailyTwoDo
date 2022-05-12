@@ -62,10 +62,12 @@ class InputViewController: UIViewController {
        
         if let title = self.textField.text, title != "" {
             //데이터 등록
-            DayWorks.shared.newWork(title: title)
+            if DayWorks.shared.newWork(title: title) {
+                //테이블뷰 업데이트
+                superTableView.reloadData()
+            }
             
-            //테이블뷰 업데이트
-            superTableView.reloadData()
+         
         }
         
         //창 종료
@@ -90,12 +92,12 @@ extension InputViewController: UITextFieldDelegate {
     
          if let title = self.textField.text, title != "" {
              //데이터 등록
-             DayWorks.shared.newWork(title: title)
+             if DayWorks.shared.newWork(title: title) {
+                 //테이블뷰 업데이트
+                 superTableView.reloadData()
+                 self.textField.text = ""
+             }
              
-             //테이블뷰 업데이트
-             superTableView.reloadData()
-             
-             self.textField.text = ""
          }
         
         return false
