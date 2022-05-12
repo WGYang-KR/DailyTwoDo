@@ -182,7 +182,7 @@ class DayWorks {
             return false
         }
         workMo.title = title
-        workMo.status = .inComplete
+        workMo.status = status
         workMo.order = Int16(dayMo.works?.count ?? 0)
         
         dayMo.addToWorks(workMo) //저장소에 추가
