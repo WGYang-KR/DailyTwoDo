@@ -18,7 +18,7 @@ class WorkDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
-        dateFormatter.dateFormat = "yyyy-MM-dd "
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         return dateFormatter
     }()
 
