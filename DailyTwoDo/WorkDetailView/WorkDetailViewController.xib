@@ -44,6 +44,9 @@
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="완료" id="Es4-8l-MIf">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="touchUpInsideCompleteButton:" destination="-1" id="nCz-eh-OEk"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>

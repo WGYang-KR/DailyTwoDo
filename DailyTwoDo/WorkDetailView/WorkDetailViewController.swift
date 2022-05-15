@@ -53,6 +53,9 @@ class WorkDetailViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func touchUpInsideCompleteButton(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
