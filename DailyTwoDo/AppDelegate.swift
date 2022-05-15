@@ -8,13 +8,22 @@
 import UIKit
 import CoreData
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let firstLaunch = FirstLaunch(userDefaults: .standard, key: "com.DailyTwoDo.FirstLaunch.WasLaunchedBefore")
+
+        if firstLaunch.isFirstLaunch {
+            print("첫실행 감지")
+            // do things
+            DayWorks.shared.addGuide()
+        }
+            
         return true
     }
 

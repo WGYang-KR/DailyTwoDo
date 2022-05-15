@@ -302,4 +302,41 @@ class DayWorks {
             return false
         }
     }
+    
+    func addGuide() {
+        
+        let guides: [String] = [
+            "🗓데일리투두 사용법🗓",
+            "할일 추가: + 버튼을 눌러서 할일을 추가해요.",
+            "할일 수정: 할일을 탭하면 수정화면으로 이동해요.",
+            "할일 삭제: 할일을 왼쪽으로 쓸어넘겨서 삭제해요.",
+            "순서 변경: 할일을 꾸욱 눌러서 이동해요",
+            "달력 모드: 달력을 아래로 쓸어내려서 펼쳐요"
+        ]
+       
+        let status: Status = .inComplete
+        let dayMo: DayMo = getDay(date: Date() )
+        
+        for guide in guides {
+            guard let workMo = NSEntityDescription.insertNewObject(forEntityName: "Work", into: context) as? WorkMo else {
+                print("updateWork:insertNewObject 실패")
+                return
+            }
+            
+            workMo.title = guide
+            workMo.status = status
+            workMo.order = Int16(dayMo.works?.count ?? 0)
+            
+            dayMo.addToWorks(workMo) //저장소에 추가
+            
+            self.selectedWorks.append(workMo) //배열에 추가
+        }
+  
+        
+        do {
+            try context.save()
+        } catch {
+            context.rollback()
+        }
+    }
 }
