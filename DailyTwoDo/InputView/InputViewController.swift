@@ -36,10 +36,13 @@ class InputViewController: UIViewController {
     
     //MARK: - 키보드 올라올 때 inputBox 따라 올라가기
     @objc func keyboardWillShow(_ sender: Notification) {
+        let safeAreaBottomHeight = view.safeAreaInsets.bottom
+        
+        
         if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 let keyboardHeight = keyboardRectangle.height
-            self.inputBoxBottomMargin.constant = keyboardHeight
+            self.inputBoxBottomMargin.constant = keyboardHeight - safeAreaBottomHeight
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
