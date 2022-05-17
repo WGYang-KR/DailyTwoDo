@@ -1,6 +1,12 @@
 # DailyTwoDo
 [진행중][할일 관리 앱]
 
-할일 목록과 상태(완료, 진행중, 미완료) 관리를 지원합니다.
 
-![DailyTwoDoScreenRecord2022-05-11](https://user-images.githubusercontent.com/72122503/167768336-76beaa42-2ef6-4ba4-8e12-0ee7639ea1d0.gif)
+Daily Two Do는 심플한 할일 관리를 제공합니다.
+그날의 할일을 기록하고,
+진척도를 체크하세요.
+
+앱스토어:
+지원URL: https://www.notion.so/Daily-Two-Do-5eb00721b57c4be2b42aad447aec70d0
+
+![DailyTwoDo1 0 1ScreenRecord](https://user-images.githubusercontent.com/72122503/168710023-eef69bcc-eef7-4ca5-9e9f-bea4086a8dbc.gif)
