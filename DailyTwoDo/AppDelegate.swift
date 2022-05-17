@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // do things
             DayWorks.shared.addGuide()
         }
-            
+        
         return true
     }
 

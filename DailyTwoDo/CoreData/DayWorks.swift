@@ -267,6 +267,29 @@ class DayWorks {
         
     }
     
+    
+    func moveWork(moveWorkAt sourceIndex: Int, to destinationDate: Date, completion: @escaping () -> Void ) {
+        
+        let srcDayMo = getDay(date: self.selectedDate)
+        let destDayMo = getDay(date: destinationDate)
+        let workMoWillMove = self.selectedWorks[sourceIndex]
+        
+        srcDayMo.removeFromWorks(workMoWillMove)
+        destDayMo.addToWorks(workMoWillMove)
+        
+        
+        self.selectedWorks.remove(at: sourceIndex)
+        //재정렬
+        for (index, item) in self.selectedWorks.enumerated() {
+            item.order = Int16(index)
+        }
+        
+        DispatchQueue.main.async {
+            completion()
+        }
+        
+    }
+    
     func moveWork(moveWorkAt sourceIndex: Int, to destinationIndex: Int) -> Bool {
         
         
@@ -328,8 +351,6 @@ class DayWorks {
             workMo.order = Int16(dayMo.works?.count ?? 0)
             
             dayMo.addToWorks(workMo) //저장소에 추가
-            
-            self.selectedWorks.append(workMo) //배열에 추가
         }
   
         
